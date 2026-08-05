@@ -21,16 +21,14 @@ class ConformerSettings(BaseModel):
     particular molecule.
     """
 
-    method: Literal["omega", "omega-elf10"] = Field(
+    method: Literal["rdkit", "omega", "omega-elf10"] = Field(
         "omega-elf10", description="The method to use to generate the conformers."
     )
     sampling_mode: Literal["sparse", "dense"] = Field(
         "dense", description="The mode in which to generate the conformers."
     )
 
-    max_conformers: int | None = Field(
-        5, description="The maximum number of conformers to generate."
-    )
+    max_conformers: int | None = Field(5, description="The maximum number of conformers to generate.")
 
 
 class ConformerGenerator:
@@ -109,6 +107,11 @@ class ConformerGenerator:
 
         if "omega" in settings.method:
             conformers = cls._generate_omega_conformers(molecule, settings)
+        elif "rdkit" in settings.method:
+            molecule.generate_conformers(
+                n_conformers=settings.max_conformers if settings.max_conformers else 1,
+            )
+            conformers = molecule.conformers
         else:
             raise NotImplementedError()
 
