@@ -11,10 +11,16 @@ from openff.recharge.esp.storage import MoleculeESPRecord
 from openff.recharge.grids import LatticeGridSettings
 from openff.recharge.optimize import ESPObjective, ESPObjectiveTerm
 
+import sys
+
 
 def main():
     # Load in the molecules to train
-    training_set = ["C", "CC", "CCC", "CCCC"]
+    training_set = []
+    training_data_file = sys.argv[1]
+    with open(training_data_file, "r") as f:
+        for line in f:
+            training_set.append(line.strip())
 
     # Generate reference QC data for each molecule in the set.
     qc_data_settings = ESPSettings(
@@ -50,16 +56,14 @@ def main():
             qc_data_records.append(qc_data_record)
 
     # Define a set of parameters to train
-    bcc_collection = BCCCollection(
-        parameters=[
-            BCCParameter(smirks="[#6X4:1]-[#6X4:2]", value=0.0),
-            BCCParameter(smirks="[#6X4:1]-[#1:2]", value=0.0),
-        ]
-    )
-    bcc_parameters_to_train = [
-        "[#6X4:1]-[#6X4:2]",
-        "[#6X4:1]-[#1:2]",
-    ]
+    bcc_smarts_file = sys.argv[2]
+    bcc_smarts = []
+    with open(bcc_parameters_smarts_file, "r") as f:
+        for line in f:
+            bcc_smarts.append(line.strip())
+
+    bcc_collection = BCCCollection(parameters=[BCCParameter(smirks=smarts, value=0.0) for smarts in bcc_smarts])
+    bcc_parameters_to_train = [smarts for smarts in bcc_smarts]
 
     # Construct the terms in our objective function that we will aim to minimize. See
     # also the ``ElectricFieldObjective`` objective class.
