@@ -18,7 +18,9 @@ def main():
 
     # Generate reference QC data for each molecule in the set.
     qc_data_settings = ESPSettings(
-        method="hf", basis="6-31G*", grid_settings=LatticeGridSettings(spacing=0.7)
+        method="hf",
+        basis="6-31G*",
+        grid_settings=LatticeGridSettings(spacing=0.7),
     )
     qc_data_records = []
 
@@ -26,7 +28,11 @@ def main():
         molecule = Molecule.from_smiles(smiles)
 
         conformers = ConformerGenerator.generate(
-            molecule, ConformerSettings(max_conformers=5)
+            molecule,
+            ConformerSettings(
+                method="rdkit",
+                max_conformers=5,
+            ),
         )
 
         for conformer in tqdm(conformers):
@@ -50,7 +56,10 @@ def main():
             BCCParameter(smirks="[#6X4:1]-[#1:2]", value=0.0),
         ]
     )
-    bcc_parameters_to_train = ["[#6X4:1]-[#1:2]"]
+    bcc_parameters_to_train = [
+        "[#6X4:1]-[#6X4:2]",
+        "[#6X4:1]-[#1:2]",
+    ]
 
     # Construct the terms in our objective function that we will aim to minimize. See
     # also the ``ElectricFieldObjective`` objective class.
@@ -77,8 +86,9 @@ def main():
 
     for parameter_smirks, trained_value in zip(bcc_parameters_to_train, trained_values):
         print(
-            parameter_smirks,
-            f" INITIAL={0.0:.4f}  FINAL={float(trained_value):.4f}",
+            f"{parameter_smirks:<48}".format("left aligned"),
+            f"  INITIAL={0.0:.4f}".format("left aligned"),
+            f"  FINAL={float(trained_value[0]):.4f}".format("left aligned"),
         )
 
 
