@@ -58,7 +58,7 @@ def main():
     # Define a set of parameters to train
     bcc_smarts_file = sys.argv[2]
     bcc_smarts = []
-    with open(bcc_parameters_smarts_file, "r") as f:
+    with open(bcc_smarts_file, "r") as f:
         for line in f:
             bcc_smarts.append(line.strip())
 
