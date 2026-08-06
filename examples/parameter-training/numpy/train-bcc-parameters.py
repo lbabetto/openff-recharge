@@ -32,7 +32,11 @@ def main():
     qc_data_records = []
 
     for smiles in tqdm(training_set):
-        molecule = Molecule.from_smiles(smiles)
+        try:
+            molecule = Molecule.from_smiles(smiles)
+        except Exception as e:
+            print(f"Exception occurred for SMILES {smiles}:\n {e}")
+            continue
 
         conformers = ConformerGenerator.generate(
             molecule,
