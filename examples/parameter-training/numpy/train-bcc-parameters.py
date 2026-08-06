@@ -14,6 +14,7 @@ from openff.recharge.optimize import ESPObjective, ESPObjectiveTerm
 import sys
 import os
 import logging
+from openff.recharge.esp.exceptions import Psi4Error
 
 
 def main():
@@ -64,8 +65,8 @@ def main():
 
                 qc_data_records.append(qc_data_record)
 
-            except Exception as e:
-                logging.error(f"Exception occurred for conformer {conformer}:\n {e}")
+            except (Exception, Psi4Error) as error:
+                logging.error(f"Exception occurred for conformer {conformer}:\n{error}")
                 continue
 
     # Define a set of parameters to train
