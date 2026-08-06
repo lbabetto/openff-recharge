@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH -a cin_staff
-#SBATCH -p g100_usr_prod 
-#SBATCH -t 0-04:00:00
+#SBATCH --account cin_staff
+#SBATCH --partition g100_usr_prod 
+#SBATCH --time 0-04:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=16
