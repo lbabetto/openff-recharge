@@ -34,32 +34,39 @@ def main():
     for smiles in tqdm(training_set):
         try:
             molecule = Molecule.from_smiles(smiles)
+
+            conformers = ConformerGenerator.generate(
+                molecule,
+                ConformerSettings(
+                    method="rdkit",
+                    max_conformers=5,
+                ),
+            )
+
         except Exception as e:
             print(f"Exception occurred for SMILES {smiles}:\n {e}")
             continue
 
-        conformers = ConformerGenerator.generate(
-            molecule,
-            ConformerSettings(
-                method="rdkit",
-                max_conformers=5,
-            ),
-        )
-
         for conformer in tqdm(conformers):
-            conformer, grid, esp, electric_field = Psi4ESPGenerator.generate(
-                molecule=molecule,
-                conformer=conformer,
-                settings=qc_data_settings,
-                # Minimize the input conformer prior to evaluating the ESP / EF
-                minimize=True,
-                n_threads=os.cpu_count(),
-            )
-            qc_data_record = MoleculeESPRecord.from_molecule(
-                molecule, conformer, grid, esp, electric_field, qc_data_settings
-            )
+            try:
+                conformer, grid, esp, electric_field = Psi4ESPGenerator.generate(
+                    molecule=molecule,
+                    conformer=conformer,
+                    settings=qc_data_settings,
+                    # Minimize the input conformer prior to evaluating the ESP / EF
+                    minimize=True,
+                    n_threads=os.cpu_count(),
+                )
+                qc_data_record = MoleculeESPRecord.from_molecule(
+                    molecule, conformer, grid, esp, electric_field, qc_data_settings
+                )
 
-            qc_data_records.append(qc_data_record)
+                qc_data_records.append(qc_data_record)
+
+            except Exception as e:
+                    print(f"Exception occurred for conformer {conformer}:\n {e}")
+                    continue
+            
 
     # Define a set of parameters to train
     bcc_smarts_file = sys.argv[2]
