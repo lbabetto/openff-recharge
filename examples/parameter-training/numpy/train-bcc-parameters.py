@@ -12,6 +12,7 @@ from openff.recharge.grids import LatticeGridSettings
 from openff.recharge.optimize import ESPObjective, ESPObjectiveTerm
 
 import sys
+import os
 
 
 def main():
@@ -48,6 +49,7 @@ def main():
                 settings=qc_data_settings,
                 # Minimize the input conformer prior to evaluating the ESP / EF
                 minimize=True,
+                n_threads=os.cpu_count(),
             )
             qc_data_record = MoleculeESPRecord.from_molecule(
                 molecule, conformer, grid, esp, electric_field, qc_data_settings
