@@ -13,6 +13,7 @@ from openff.recharge.optimize import ESPObjective, ESPObjectiveTerm
 
 import sys
 import os
+import logging
 
 
 def main():
@@ -44,7 +45,7 @@ def main():
             )
 
         except Exception as e:
-            print(f"Exception occurred for SMILES {smiles}:\n {e}")
+            logging.error(f"Exception occurred for SMILES {smiles}:\n {e}")
             continue
 
         for conformer in tqdm(conformers):
@@ -64,9 +65,8 @@ def main():
                 qc_data_records.append(qc_data_record)
 
             except Exception as e:
-                    print(f"Exception occurred for conformer {conformer}:\n {e}")
-                    continue
-            
+                logging.error(f"Exception occurred for conformer {conformer}:\n {e}")
+                continue
 
     # Define a set of parameters to train
     bcc_smarts_file = sys.argv[2]
