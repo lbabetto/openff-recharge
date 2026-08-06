@@ -12,4 +12,4 @@ conda activate openff-recharge
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 export MKL_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
-python train-bcc-parameters.py spice-pubchem.smi SMARTS.txt
+python train-bcc-parameters.py $1 $2
