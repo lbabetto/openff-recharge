@@ -1,5 +1,4 @@
 #!/bin/bash
-#SBATCH -j openff_train
 #SBATCH -a cin_staff
 #SBATCH -p g100_usr_prod 
 #SBATCH -t 0-04:00:00
