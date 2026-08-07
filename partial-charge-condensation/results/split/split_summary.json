@@ -1,0 +1,112 @@
+{
+  "dataset_root": "/mnt/c/Users/f.rizza/Desktop/dompe/datasets-grappa",
+  "split_source": "/mnt/c/Users/f.rizza/Desktop/dompe/grappa-1.4.1-source/dataset_creation/get_espaloma_split",
+  "datasets": [
+    "gen2",
+    "gen2-torsion",
+    "pepconf-dlc",
+    "protein-torsion",
+    "spice-pubchem",
+    "spice-dipeptide",
+    "spice-des-monomers",
+    "rna-nucleoside",
+    "rna-diverse"
+  ],
+  "total_molecules": 17596,
+  "train_molecules": 13945,
+  "validation_molecules": 1779,
+  "test_molecules": 1872,
+  "train_fraction": 0.792509661286656,
+  "validation_fraction": 0.10110252330075017,
+  "test_fraction": 0.10638781541259378,
+  "published_test_smiles": 1740,
+  "published_validation_smiles_before_overlap_removal": 1741,
+  "validation_test_overlap_removed": 6,
+  "published_test_smiles_found": 1740,
+  "published_validation_smiles_found": 1733,
+  "published_test_smiles_not_found": 0,
+  "published_validation_smiles_not_found": 2,
+  "per_dataset": {
+    "gen2": {
+      "total": 1024,
+      "train": 757,
+      "validation": 113,
+      "test": 154,
+      "train_fraction": 0.7392578125,
+      "validation_fraction": 0.1103515625,
+      "test_fraction": 0.150390625
+    },
+    "gen2-torsion": {
+      "total": 729,
+      "train": 511,
+      "validation": 87,
+      "test": 131,
+      "train_fraction": 0.700960219478738,
+      "validation_fraction": 0.11934156378600823,
+      "test_fraction": 0.17969821673525377
+    },
+    "pepconf-dlc": {
+      "total": 557,
+      "train": 447,
+      "validation": 55,
+      "test": 55,
+      "train_fraction": 0.8025134649910234,
+      "validation_fraction": 0.09874326750448834,
+      "test_fraction": 0.09874326750448834
+    },
+    "protein-torsion": {
+      "total": 62,
+      "train": 47,
+      "validation": 6,
+      "test": 9,
+      "train_fraction": 0.7580645161290323,
+      "validation_fraction": 0.0967741935483871,
+      "test_fraction": 0.14516129032258066
+    },
+    "spice-pubchem": {
+      "total": 14110,
+      "train": 11291,
+      "validation": 1408,
+      "test": 1411,
+      "train_fraction": 0.8002126151665485,
+      "validation_fraction": 0.09978738483345145,
+      "test_fraction": 0.1
+    },
+    "spice-dipeptide": {
+      "total": 677,
+      "train": 543,
+      "validation": 67,
+      "test": 67,
+      "train_fraction": 0.8020679468242246,
+      "validation_fraction": 0.09896602658788774,
+      "test_fraction": 0.09896602658788774
+    },
+    "spice-des-monomers": {
+      "total": 369,
+      "train": 293,
+      "validation": 37,
+      "test": 39,
+      "train_fraction": 0.7940379403794038,
+      "validation_fraction": 0.1002710027100271,
+      "test_fraction": 0.10569105691056911
+    },
+    "rna-nucleoside": {
+      "total": 4,
+      "train": 4,
+      "validation": 0,
+      "test": 0,
+      "train_fraction": 1.0,
+      "validation_fraction": 0.0,
+      "test_fraction": 0.0
+    },
+    "rna-diverse": {
+      "total": 64,
+      "train": 52,
+      "validation": 6,
+      "test": 6,
+      "train_fraction": 0.8125,
+      "validation_fraction": 0.09375,
+      "test_fraction": 0.09375
+    }
+  }
+}

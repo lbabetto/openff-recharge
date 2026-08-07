@@ -1,0 +1,11 @@
+dataset,total_molecules,covered_molecules,uncovered_molecules,coverage_fraction
+gen2,1024,1020,4,0.99609375
+gen2-torsion,729,720,9,0.9876543209876543
+pepconf-dlc,557,557,0,1.0
+protein-torsion,62,62,0,1.0
+rna-diverse,64,0,64,0.0
+rna-nucleoside,4,4,0,1.0
+rna-trinucleotide,64,0,64,0.0
+spice-des-monomers,369,359,10,0.9728997289972899
+spice-dipeptide,677,677,0,1.0
+spice-pubchem,14110,13503,607,0.9569808646350106

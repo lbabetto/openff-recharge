@@ -1,0 +1,249 @@
+RECHARGE CHARGE CONDENSATION WORKFLOW
+
+Questo progetto implementa un workflow sperimentale per costruire una lookup table di correzioni di carica indicizzate tramite i pattern SMIRKS di OpenFF recharge. L’obiettivo è riprodurre cariche parziali AM1-BCC-ELF10 partendo dalle cariche formali degli atomi, senza dover eseguire un calcolo quantomeccanico o un’inferenza con un modello di machine learning per ogni nuova molecola.
+
+Il modello assegna a ogni molecola le cariche:
+
+q_pred = q_formal + T · δ
+
+dove T è la matrice di assegnazione dei pattern SMIRKS e δ contiene le correzioni apprese sul training set.
+
+STRUTTURA DEL PROGETTO
+
+recharge-condensation/
+00_build_split_manifests.py
+01_scan_bcc_coverage.py
+02_fit_global_bcc.py
+03_evaluate_bcc.py
+evaluation_summary.py
+prototype_fit_multiconformer.py
+manifests/
+outputs/
+
+00 — PREPARAZIONE DEGLI SPLIT
+
+Lo script 00_build_split_manifests.py ricostruisce lo split Espaloma originale usando le liste di validation e test distribuite con Grappa. Le molecole non presenti in queste due liste vengono assegnate al training set.
+
+Esempio:
+
+python 00_build_split_manifests.py
+--dataset-root /path/to/datasets-grappa
+--split-source /path/to/grappa-source/dataset_creation/get_espaloma_split
+--output-dir manifests
+
+Principali file prodotti in manifests/:
+
+train_manifest.csv
+validation_manifest.csv
+test_manifest.csv
+
+Ogni manifest contiene i percorsi dei file NPZ appartenenti al relativo subset.
+
+01 — ANALISI DELLA COPERTURA SMIRKS
+
+Lo script 01_scan_bcc_coverage.py verifica quali molecole possono essere completamente assegnate utilizzando i 282 pattern SMIRKS contenuti nella tabella AM1-BCC originale di OpenFF Recharge.
+
+Una molecola viene considerata non coperta quando almeno un atomo rimane privo di un’assegnazione BCC completa. Non significa necessariamente che l’intera molecola non corrisponda ad alcun pattern.
+
+Esempio:
+
+python 01_scan_bcc_coverage.py
+--manifest manifests/all_dataset_manifest.csv
+--output-dir outputs/bcc-coverage-all
+--progress-every 250
+
+File prodotti in outputs/bcc-coverage-all/:
+
+coverage_summary.json
+coverage_by_dataset.csv
+coverage_by_molecule.csv
+uncovered_atoms.csv
+missing_atom_environments.csv
+candidate_missing_bond_environments.csv
+pattern_usage_covered_molecules.csv
+
+I file contengono:
+
+* la copertura complessiva e per dataset;
+* l’elenco delle molecole non completamente assegnabili;
+* gli atomi rimasti senza assegnazione;
+* gli ambienti atomici mancanti;
+* i legami candidati responsabili della mancata copertura;
+* la frequenza di utilizzo dei 282 pattern originali.
+
+La scansione completa dei dataset Espaloma ha prodotto i seguenti risultati:
+
+Molecole analizzate: 17660
+Molecole coperte: 16902
+Molecole non coperte: 758
+Copertura molecolare: 95.71%
+Atomi non assegnati: 2324
+Ambienti atomici mancanti unici: 15
+Ambienti di legame candidati unici: 44
+
+La principale lacuna riguarda la chimica del fosforo: 741 delle 758 molecole non coperte contengono almeno un atomo di fosforo non assegnato. Le restanti 17 molecole presentano principalmente carboni cationici tricoordinati.
+
+02 — FITTING GLOBALE DELLE CORREZIONI BCC
+
+Lo script 02_fit_global_bcc.py ottimizza globalmente i valori δ sul training set.
+
+Le cariche formali vengono utilizzate come cariche di base, mentre il potenziale elettrostatico di riferimento viene ricostruito dalle cariche AM1-BCC-ELF10 presenti nei file NPZ. Il fitting minimizza lo scarto tra il potenziale prodotto dalle cariche formali corrette e quello prodotto dalle cariche di riferimento.
+
+Il fitting preliminare utilizza soltanto le molecole completamente coperte dai 282 pattern originali.
+
+Esempio:
+
+python 02_fit_global_bcc.py
+--manifest manifests/train_covered_manifest.csv
+--output-dir outputs/global-fit-covered-1conf
+--max-conformers 1
+--checkpoint-every 100
+
+File prodotti in outputs/global-fit-covered-1conf/:
+
+fit_checkpoint.npz
+fitted_bcc_collection.json
+training_pattern_coverage.csv
+fit_summary.json
+
+Il file principale è:
+
+fitted_bcc_collection.json
+
+Questo file contiene la lookup table finale dei 282 pattern SMIRKS con i valori δ ottimizzati. I pattern non osservati durante il training ricevono valore zero.
+
+Il fitting preliminare su un conformero per molecola ha prodotto:
+
+Molecole processate: 13396
+Conformeri processati: 13396
+Punti ESP: 21552583
+Parametri attivi: 176
+Rango: 176
+
+Metriche sul training:
+
+ESP RMSE prima:    0.0180526 a.u.
+ESP RMSE dopo:     0.0071830 a.u.
+
+Charge RMSE prima: 0.305115 e
+Charge RMSE dopo:  0.117373 e
+
+La carica totale viene conservata entro la precisione numerica.
+
+03 — VALUTAZIONE SUL TEST SET
+
+Lo script 03_evaluate_bcc.py applica la tabella congelata alle molecole del test set senza eseguire alcuna nuova ottimizzazione.
+
+Per ogni molecola vengono calcolate:
+
+* le cariche ottenute mediante q_formal + T · δ;
+* il charge RMSE rispetto alle AM1-BCC-ELF10;
+* il potenziale elettrostatico prodotto dalle cariche predette;
+* l’ESP RMSE rispetto al potenziale ricostruito dalle cariche di riferimento;
+* l’errore sulla carica totale.
+
+Esempio:
+
+python 03_evaluate_bcc.py
+--manifest manifests/test_covered_manifest.csv
+--bcc-collection outputs/global-fit-covered-1conf/fitted_bcc_collection.json
+--output-dir outputs/test-covered-1conf
+--max-conformers 1
+--progress-every 100
+
+File prodotti in outputs/test-covered-1conf/:
+
+evaluation_summary.json
+test_metrics_by_dataset.csv
+test_metrics_by_molecule.csv
+test_pattern_coverage.csv
+
+RIEPILOGO DI VALUTAZIONE
+
+Lo script evaluation_summary.py arricchisce il riepilogo prodotto da 03_evaluate_bcc.py con informazioni aggiuntive sulla composizione del test, sulla copertura dei pattern e sull’origine del potenziale elettrostatico di riferimento.
+
+Esempio:
+
+python evaluation_summary.py
+--input-summary outputs/test-covered-1conf/evaluation_summary.json
+--original-manifest manifests/test_manifest.csv
+--reference-charge-model AM1-BCC-ELF10
+--output-summary outputs/test-covered-1conf/evaluation_summary_enriched.json
+
+File prodotto:
+
+evaluation_summary_enriched.json
+
+Il file originale evaluation_summary.json non viene modificato. La versione arricchita aggiunge:
+
+* modello di carica di riferimento;
+* origine dell’ESP di riferimento;
+* percorso e hash del manifest originale;
+* numero di molecole originarie, valutate ed escluse;
+* frazione di copertura del test;
+* descrizione dell’aggregazione delle metriche.
+
+RISULTATI DEL TEST
+
+Il test originale conteneva 1.872 molecole. Di queste, 1.791 erano completamente coperte dai 282 pattern BCC originali e sono state incluse nella valutazione. Le 81 molecole non completamente coperte sono state escluse, ottenendo una copertura del 95,67%.
+
+La valutazione ha utilizzato:
+
+Molecole originali: 1872
+Molecole valutate: 1791
+Molecole escluse: 81
+Conformeri: 1791
+Atomi: 65681
+Punti ESP: 2830586
+Pattern BCC totali: 282
+Pattern attivi nel test: 137
+Pattern attivi ma non allenati: 0
+
+Metriche sul test:
+
+ESP RMSE prima:     0.0178325 a.u.
+ESP RMSE dopo:      0.0067661 a.u.
+
+Charge RMSE prima:  0.301254 e
+Charge RMSE dopo:   0.114685 e
+
+Errore massimo sulla carica totale: 2.39 × 10^-15 e
+
+“Prima” indica il confronto con le sole cariche formali di base. “Dopo” indica il confronto dopo l’applicazione delle correzioni BCC apprese sul training set.
+
+Il modello riduce di circa il 62% sia l’ESP RMSE sia il charge RMSE. Le prestazioni sul test sono comparabili a quelle osservate sul training set, senza evidenza di overfitting globale all’interno dello spazio chimico coperto dai pattern disponibili.
+
+L’ESP utilizzato in questo workflow non è un ESP quantomeccanico. È il potenziale generato dalle cariche puntuali AM1-BCC-ELF10 sulle griglie MSK costruite da Recharge.
+
+PROTOTIPO MULTICONFORMAZIONALE
+
+Lo script prototype_fit_multiconformer.py rappresenta il prototipo iniziale del workflow. Esegue il fitting su una singola molecola utilizzando più conformeri.
+
+Esempio:
+
+python prototype_fit_multiconformer.py
+--input /path/to/datasets-grappa/spice-pubchem/0.npz
+--output-prefix outputs/spice-pubchem-0-all-conformers
+
+File prodotti:
+
+spice-pubchem-0-all-conformers-fitted-bcc.json
+spice-pubchem-0-all-conformers-fit.npz
+
+Questo script è utile per controlli locali e per confrontare fitting mono- e multiconformazionali, ma non appartiene al workflow globale definitivo.
+
+MANIFEST AGGIUNTIVI
+
+I seguenti manifest sono stati creati mediante comandi intermedi:
+
+all_dataset_manifest.csv
+train_covered_manifest.csv
+test_covered_manifest.csv
+
+all_dataset_manifest.csv contiene tutte le 17.660 molecole disponibili ed è stato utilizzato per la scansione complessiva della copertura.
+
+train_covered_manifest.csv contiene soltanto le molecole del training set completamente coperte dai 282 pattern BCC originali.
+
+test_covered_manifest.csv contiene soltanto le molecole del test set completamente coperte dai 282 pattern BCC originali.
+
+La generazione di questi manifest non è ancora integrata automaticamente negli script principali e dovrà essere aggiunta in una versione successiva del workflow.
