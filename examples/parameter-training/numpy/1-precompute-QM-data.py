@@ -4,7 +4,6 @@ from functools import partial
 from multiprocessing import Pool, cpu_count
 from pathlib import Path
 
-import h5py
 from openff.toolkit import Quantity
 from openff.toolkit.topology import Molecule
 from tqdm import tqdm
@@ -13,7 +12,7 @@ from openff.recharge.conformers import ConformerGenerator, ConformerSettings
 from openff.recharge.esp import ESPSettings
 from openff.recharge.esp.exceptions import Psi4Error
 from openff.recharge.esp.psi4 import Psi4ESPGenerator
-from openff.recharge.esp.storage import MoleculeESPRecord
+from openff.recharge.esp.storage import MoleculeESPRecord, MoleculeESPStore
 from openff.recharge.grids import LatticeGridSettings
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
@@ -57,21 +56,6 @@ def compute_esp(
     except (Exception, Psi4Error) as error:
         logging.error(f"Exception occurred for a conformer of {molecule.to_smiles()}:\n{error}")
         return None
-
-
-def save_records(records: list[MoleculeESPRecord], output_file: Path) -> None:
-    with h5py.File(output_file, "w") as h5_file:
-        for i, record in enumerate(records):
-            group = h5_file.create_group(f"molecule_{i:06d}")
-            group.attrs["tagged_smiles"] = record.tagged_smiles
-            group.attrs["esp_settings"] = record.esp_settings.model_dump_json()
-
-            group.create_dataset("conformer", data=record.conformer)
-            group.create_dataset("grid_coordinates", data=record.grid_coordinates)
-            group.create_dataset("esp", data=record.esp)
-
-            if record.electric_field is not None:
-                group.create_dataset("electric_field", data=record.electric_field)
 
 
 def parse_args() -> argparse.Namespace:
@@ -137,8 +121,11 @@ def main():
         f"({len(training_set)} molecules)"
     )
 
-    output_file = args.training_data_file.with_suffix(".hdf5")
-    save_records(qc_data_records, output_file)
+    output_file = args.training_data_file.with_suffix(".sqlite")
+    output_file.unlink(missing_ok=True)
+
+    qc_data_store = MoleculeESPStore(str(output_file))
+    qc_data_store.store(*qc_data_records)
     logging.info(f"Saved QM data to {output_file}")
 
 
