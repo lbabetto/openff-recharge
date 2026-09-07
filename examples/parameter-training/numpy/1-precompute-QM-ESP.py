@@ -126,7 +126,7 @@ def main():
 
     qc_data_store = MoleculeESPStore(str(output_file))
     qc_data_store.store(*qc_data_records)
-    logging.info(f"Saved QM data to {output_file}")
+    logging.info(f"Saved QM ESP data to {output_file}")
 
 
 if __name__ == "__main__":
