@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(mess
 
 def process_molecule(smiles: str, esp_settings: ESPSettings) -> MoleculeESPRecord | None:
     try:
-        molecule = Molecule.from_smiles(smiles)
+        molecule = Molecule.from_smiles(smiles, allow_undefined_stereo=True)
 
         conformers = ConformerGenerator.generate(
             molecule,
