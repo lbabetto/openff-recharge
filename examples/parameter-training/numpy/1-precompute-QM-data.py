@@ -5,6 +5,7 @@ from multiprocessing import Pool, cpu_count
 from pathlib import Path
 
 import h5py
+from openff.toolkit import Quantity
 from openff.toolkit.topology import Molecule
 from tqdm import tqdm
 
@@ -18,7 +19,7 @@ from openff.recharge.grids import LatticeGridSettings
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 
 
-def process_molecule(smiles: str, esp_settings: ESPSettings) -> MoleculeESPRecord | None:
+def generate_conformers(smiles: str) -> list[tuple[Molecule, Quantity]]:
     try:
         molecule = Molecule.from_smiles(smiles, allow_undefined_stereo=True)
 
@@ -32,24 +33,30 @@ def process_molecule(smiles: str, esp_settings: ESPSettings) -> MoleculeESPRecor
 
     except Exception as error:
         logging.error(f"Exception occurred for SMILES {smiles}:\n{error}")
+        return []
+
+    return [(molecule, conformer) for conformer in conformers]
+
+
+def compute_esp(
+    molecule_conformer: tuple[Molecule, Quantity], esp_settings: ESPSettings
+) -> MoleculeESPRecord | None:
+    molecule, conformer = molecule_conformer
+
+    try:
+        conformer, grid, esp, electric_field = Psi4ESPGenerator.generate(
+            molecule=molecule,
+            conformer=conformer,
+            settings=esp_settings,
+            # Minimize the input conformer prior to evaluating the ESP / EF
+            minimize=True,
+            n_threads=1,
+        )
+        return MoleculeESPRecord.from_molecule(molecule, conformer, grid, esp, electric_field, esp_settings)
+
+    except (Exception, Psi4Error) as error:
+        logging.error(f"Exception occurred for a conformer of {molecule.to_smiles()}:\n{error}")
         return None
-
-    for conformer in conformers:
-        try:
-            conformer, grid, esp, electric_field = Psi4ESPGenerator.generate(
-                molecule=molecule,
-                conformer=conformer,
-                settings=esp_settings,
-                # Minimize the input conformer prior to evaluating the ESP / EF
-                minimize=True,
-                n_threads=1,
-            )
-            return MoleculeESPRecord.from_molecule(molecule, conformer, grid, esp, electric_field, esp_settings)
-
-        except (Exception, Psi4Error) as error:
-            logging.error(f"Exception occurred for a conformer of {smiles}:\n{error}")
-
-    return None
 
 
 def save_records(records: list[MoleculeESPRecord], output_file: Path) -> None:
@@ -96,19 +103,33 @@ def main():
         basis="6-31G*",
         grid_settings=LatticeGridSettings(spacing=0.7),
     )
-    worker = partial(process_molecule, esp_settings=esp_settings)
+
+    # Conformer generation is cheap, so do it up front and flatten the
+    # (molecule, conformer) pairs so every conformer of every molecule gets
+    # its own task in the pool below, rather than parallelizing only over
+    # molecules and looping over their conformers serially within a worker.
+    conformer_tasks = [
+        task
+        for smiles in tqdm(training_set, desc="Generating conformers")
+        for task in generate_conformers(smiles)
+    ]
+
+    worker = partial(compute_esp, esp_settings=esp_settings)
 
     with Pool(processes=args.n_workers) as pool:
         records = list(
             tqdm(
-                pool.imap(worker, training_set),
-                total=len(training_set),
+                pool.imap(worker, conformer_tasks),
+                total=len(conformer_tasks),
                 desc="Computing ESPs",
             )
         )
 
     qc_data_records = [record for record in records if record is not None]
-    logging.info(f"Successfully computed ESPs for {len(qc_data_records)} / {len(training_set)} molecules")
+    logging.info(
+        f"Successfully computed ESPs for {len(qc_data_records)} / {len(conformer_tasks)} conformers "
+        f"({len(training_set)} molecules)"
+    )
 
     output_file = args.training_data_file.with_suffix(".hdf5")
     save_records(qc_data_records, output_file)
