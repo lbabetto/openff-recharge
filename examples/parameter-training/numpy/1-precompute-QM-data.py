@@ -27,7 +27,7 @@ def generate_conformers(smiles: str) -> list[tuple[Molecule, Quantity]]:
             molecule,
             ConformerSettings(
                 method="rdkit",
-                max_conformers=5,
+                max_conformers=10,
             ),
         )
 
@@ -97,11 +97,17 @@ def main():
     with open(args.training_data_file) as f:
         training_set = [line.strip() for line in f if line.strip()]
 
+    # Define the grid that the electrostatic properties will be trained on and the
+    # level of theory to compute the properties at.
+    grid_settings = LatticeGridSettings(
+        type="fcc", spacing=0.5, inner_vdw_scale=1.4, outer_vdw_scale=2.0
+    )
+
     # Generate reference QC data for each molecule in the set.
     esp_settings = ESPSettings(
         method="hf",
         basis="6-31G*",
-        grid_settings=LatticeGridSettings(spacing=0.7),
+        grid_settings=grid_settings,
     )
 
     # Conformer generation is cheap, so do it up front and flatten the
