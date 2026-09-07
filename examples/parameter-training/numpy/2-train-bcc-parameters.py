@@ -1,5 +1,6 @@
 import argparse
 import logging
+import sys
 from functools import partial
 from multiprocessing import Pool, cpu_count
 from pathlib import Path
@@ -84,6 +85,7 @@ def main():
                 pool.imap(worker, qc_data_records),
                 total=len(qc_data_records),
                 desc="Computing objective terms",
+                file=sys.stdout,
             )
         )
 

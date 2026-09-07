@@ -1,5 +1,6 @@
 import argparse
 import logging
+import sys
 from functools import partial
 from multiprocessing import Pool, cpu_count
 from pathlib import Path
@@ -100,7 +101,7 @@ def main():
     # molecules and looping over their conformers serially within a worker.
     conformer_tasks = [
         task
-        for smiles in tqdm(training_set, desc="Generating conformers")
+        for smiles in tqdm(training_set, desc="Generating conformers", file=sys.stdout)
         for task in generate_conformers(smiles)
     ]
 
@@ -112,6 +113,7 @@ def main():
                 pool.imap(worker, conformer_tasks),
                 total=len(conformer_tasks),
                 desc="Computing ESPs",
+                file=sys.stdout,
             )
         )
 
