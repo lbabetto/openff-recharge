@@ -1,9 +1,17 @@
 import argparse
 import logging
+import os
 import sys
 from functools import partial
 from multiprocessing import Pool, cpu_count
 from pathlib import Path
+
+# sqm (used internally for AM1 charges) links against a threaded BLAS which
+# otherwise defaults to using all cores per process; pin it to 1 thread since
+# parallelism is already handled at the process level via the Pool below.
+os.environ.setdefault("OMP_NUM_THREADS", "1")
+os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")
+os.environ.setdefault("MKL_NUM_THREADS", "1")
 
 import numpy
 from tqdm import tqdm

@@ -4,7 +4,7 @@
 #SBATCH --partition dcgp_usr_prod
 #SBATCH --time 1-00:00:00
 #SBATCH --nodes 1
-#SBATCH --ntasks-per-node 1
+#SBATCH --exclusive
 #SBATCH --output slurm-%x-%j.out
 #SBATCH --error slurm-%x-%j.err
 #SBATCH --mail-user l.babetto@cineca.it
