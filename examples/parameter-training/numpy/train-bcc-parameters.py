@@ -1,97 +1,106 @@
+import argparse
+import logging
+import os
+import sys
+from functools import partial
+from multiprocessing import Pool, cpu_count
+from pathlib import Path
+
+# sqm (used internally for AM1 charges) links against a threaded BLAS which
+# otherwise defaults to using all cores per process; pin it to 1 thread since
+# parallelism is already handled at the process level via the Pool below.
+os.environ.setdefault("OMP_NUM_THREADS", "1")
+os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")
+os.environ.setdefault("MKL_NUM_THREADS", "1")
+
 import numpy
-from openff.toolkit.topology import Molecule
 from tqdm import tqdm
 
 from openff.recharge.charges.bcc import BCCCollection, BCCParameter
 from openff.recharge.charges.qc import QCChargeSettings
-from openff.recharge.conformers import ConformerGenerator, ConformerSettings
-from openff.recharge.esp import ESPSettings
-from openff.recharge.esp.psi4 import Psi4ESPGenerator
-from openff.recharge.esp.storage import MoleculeESPRecord
-from openff.recharge.grids import LatticeGridSettings
+from openff.recharge.esp.storage import MoleculeESPRecord, MoleculeESPStore
 from openff.recharge.optimize import ESPObjective, ESPObjectiveTerm
 
-import sys
-import os
-import logging
-from openff.recharge.esp.exceptions import Psi4Error
+logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
+
+
+def compute_objective_term(
+    esp_record: MoleculeESPRecord,
+    bcc_collection: BCCCollection,
+    bcc_parameter_keys: list[str],
+):
+    # Each esp_record is independent, so run compute_objective_terms on a single
+    # record at a time to parallelize the (comparatively expensive) AM1 charge
+    # calculation it performs internally for every esp_record it is given.
+    return next(
+        ESPObjective.compute_objective_terms(
+            esp_records=[esp_record],
+            charge_collection=QCChargeSettings(theory="am1"),
+            bcc_collection=bcc_collection,
+            bcc_parameter_keys=bcc_parameter_keys,
+        )
+    )
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Train BCC parameters against previously precomputed QM ESP data.")
+    parser.add_argument(
+        "qc_data_file",
+        type=Path,
+        help="The MoleculeESPStore SQLite file produced by 1-precompute-QM-ESP.py.",
+    )
+    parser.add_argument(
+        "bcc_smarts_file",
+        type=Path,
+        help="A file containing one SMARTS pattern per line defining the BCC parameters to train.",
+    )
+    parser.add_argument(
+        "-n",
+        "--n-workers",
+        type=int,
+        default=cpu_count(),
+        help="Number of worker processes to use (default: all available CPUs).",
+    )
+    return parser.parse_args()
 
 
 def main():
-    # Load in the molecules to train
-    training_set = []
-    training_data_file = sys.argv[1]
-    with open(training_data_file, "r") as f:
-        for line in f:
-            training_set.append(line.strip())
+    args = parse_args()
 
-    # Generate reference QC data for each molecule in the set.
-    qc_data_settings = ESPSettings(
-        method="hf",
-        basis="6-31G*",
-        grid_settings=LatticeGridSettings(spacing=0.7),
-    )
-    qc_data_records = []
-
-    for smiles in tqdm(training_set):
-        try:
-            molecule = Molecule.from_smiles(smiles)
-
-            conformers = ConformerGenerator.generate(
-                molecule,
-                ConformerSettings(
-                    method="rdkit",
-                    max_conformers=5,
-                ),
-            )
-
-        except Exception as e:
-            logging.error(f"Exception occurred for SMILES {smiles}:\n {e}")
-            continue
-
-        for conformer in tqdm(conformers):
-            try:
-                conformer, grid, esp, electric_field = Psi4ESPGenerator.generate(
-                    molecule=molecule,
-                    conformer=conformer,
-                    settings=qc_data_settings,
-                    # Minimize the input conformer prior to evaluating the ESP / EF
-                    minimize=True,
-                    n_threads=os.cpu_count(),
-                )
-                qc_data_record = MoleculeESPRecord.from_molecule(
-                    molecule, conformer, grid, esp, electric_field, qc_data_settings
-                )
-
-                qc_data_records.append(qc_data_record)
-
-            except (Exception, Psi4Error) as error:
-                logging.error(f"Exception occurred for conformer {conformer}:\n{error}")
-                continue
+    qc_data_store = MoleculeESPStore(str(args.qc_data_file))
+    qc_data_records = qc_data_store.retrieve()
+    logging.info(f"Loaded {len(qc_data_records)} QC data records from {args.qc_data_file}")
 
     # Define a set of parameters to train
-    bcc_smarts_file = sys.argv[2]
-    bcc_smarts = []
-    with open(bcc_smarts_file, "r") as f:
-        for line in f:
-            bcc_smarts.append(line.strip())
+    with open(args.bcc_smarts_file) as f:
+        bcc_smarts = [line.strip() for line in f if line.strip()]
 
     bcc_collection = BCCCollection(parameters=[BCCParameter(smirks=smarts, value=0.0) for smarts in bcc_smarts])
-    bcc_parameters_to_train = [smarts for smarts in bcc_smarts]
+    bcc_parameters_to_train = list(bcc_smarts)
 
     # Construct the terms in our objective function that we will aim to minimize. See
-    # also the ``ElectricFieldObjective`` objective class.
-    objective_terms_generator = ESPObjective.compute_objective_terms(
-        esp_records=qc_data_records,
-        # Here we use AM1-mulliken charges as the base charges to correct.
-        charge_collection=QCChargeSettings(theory="am1"),
+    # also the ``ElectricFieldObjective`` objective class. Each term only depends on
+    # its own esp_record, so compute them in parallel across conformers.
+    worker = partial(
+        compute_objective_term,
         bcc_collection=bcc_collection,
         bcc_parameter_keys=bcc_parameters_to_train,
     )
+
+    with Pool(processes=args.n_workers) as pool:
+        objective_terms = list(
+            tqdm(
+                pool.imap(worker, qc_data_records),
+                total=len(qc_data_records),
+                desc="Computing objective terms",
+                file=sys.stdout,
+            )
+        )
+
     # Combine all the terms in our objective function (i.e. the difference between
     # the reference and predicted ESP values for each molecule in each conformer) into
     # a single object.
-    objective_term = ESPObjectiveTerm.combine(*objective_terms_generator)
+    objective_term = ESPObjectiveTerm.combine(*objective_terms)
 
     # Train the parameters.
     trained_values, *_ = numpy.linalg.lstsq(
@@ -103,11 +112,7 @@ def main():
     print("TRAINED PARAMETERS".center(80, "-"))
 
     for parameter_smirks, trained_value in zip(bcc_parameters_to_train, trained_values):
-        print(
-            f"{parameter_smirks:<48}".format("left aligned"),
-            f"  INITIAL={0.0:.4f}".format("left aligned"),
-            f"  FINAL={float(trained_value[0]):.4f}".format("left aligned"),
-        )
+        print(f"{parameter_smirks:<48}  INITIAL=0.0000  FINAL={float(trained_value[0]):.4f}")
 
 
 if __name__ == "__main__":
