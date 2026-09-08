@@ -16,4 +16,4 @@ conda activate openff-recharge
 QM_ESP_FILE=$1
 SMARTS_FILE=$2
 
-time python 2-train-bcc-parameters.py $QM_ESP_FILE $SMARTS_FILE
+time python train-bcc-parameters.py $QM_ESP_FILE $SMARTS_FILE

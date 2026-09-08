@@ -29,4 +29,4 @@ trap 'rm -f "$CHUNK_FILE"' EXIT
 # NOTE: make sure to use a range 1-N for the job arrays, otherwise the split WILL get messed up.
 split -n "l/$((SLURM_ARRAY_TASK_ID))/${SLURM_ARRAY_TASK_COUNT}" "$SMILES_FILE" > "$CHUNK_FILE"
 
-time python 1-precompute-QM-ESP.py "$CHUNK_FILE"
+time python precompute-QM-ESP.py "$CHUNK_FILE"
