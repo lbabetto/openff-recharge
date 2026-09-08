@@ -7,8 +7,9 @@
 #SBATCH --exclusive
 #SBATCH --ntasks-per-node 1
 #SBATCH --gres tmpfs:300G
-#SBATCH --output slurm-%x-%j.out
-#SBATCH --error slurm-%x-%j.err
+#SBATCH --array 1-10
+#SBATCH --output slurm-%x-%A_%a.out
+#SBATCH --error slurm-%x-%A_%a.err
 #SBATCH --mail-user l.babetto@cineca.it
 ##SBATCH --mail-type ALL
 
@@ -19,4 +20,13 @@ export PSI_SCRATCH=$TMPDIR
 
 SMILES_FILE=$1
 
-time python 1-precompute-QM-ESP.py $SMILES_FILE
+# Working with a temporary file with the SMILES chunk to process, which gets removed at exit.
+# The corresponding .sqlite database is instead kept and can be merged later with
+# 1b-merge-QM-ESP.sh
+CHUNK_FILE=$(mktemp --tmpdir="$(dirname "$SMILES_FILE")" "$(basename "${SMILES_FILE%.smi}")-${SLURM_ARRAY_TASK_ID}.smi")
+trap 'rm -f "$CHUNK_FILE"' EXIT
+
+# NOTE: make sure to use a range 1-N for the job arrays, otherwise the split WILL get messed up.
+split -n "l/$((SLURM_ARRAY_TASK_ID))/${SLURM_ARRAY_TASK_COUNT}" "$SMILES_FILE" > "$CHUNK_FILE"
+
+time python 1-precompute-QM-ESP.py "$CHUNK_FILE"

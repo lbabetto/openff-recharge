@@ -38,9 +38,7 @@ def generate_conformers(smiles: str) -> list[tuple[Molecule, Quantity]]:
     return [(molecule, conformer) for conformer in conformers]
 
 
-def compute_esp(
-    molecule_conformer: tuple[Molecule, Quantity], esp_settings: ESPSettings
-) -> MoleculeESPRecord | None:
+def compute_esp(molecule_conformer: tuple[Molecule, Quantity], esp_settings: ESPSettings) -> MoleculeESPRecord | None:
     molecule, conformer = molecule_conformer
 
     try:
@@ -84,9 +82,7 @@ def main():
 
     # Define the grid that the electrostatic properties will be trained on and the
     # level of theory to compute the properties at.
-    grid_settings = LatticeGridSettings(
-        type="fcc", spacing=0.5, inner_vdw_scale=1.4, outer_vdw_scale=2.0
-    )
+    grid_settings = LatticeGridSettings(type="fcc", spacing=0.5, inner_vdw_scale=1.4, outer_vdw_scale=2.0)
 
     # Generate reference QC data for each molecule in the set.
     esp_settings = ESPSettings(
