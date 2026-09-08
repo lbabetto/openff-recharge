@@ -23,7 +23,7 @@ SMILES_FILE=$1
 # Working with a temporary file with the SMILES chunk to process, which gets removed at exit.
 # The corresponding .sqlite database is instead kept and can be merged later with
 # 1b-merge-QM-ESP.sh
-CHUNK_FILE=$(mktemp --tmpdir="$(dirname "$SMILES_FILE")" "$(basename "${SMILES_FILE%.smi}")-${SLURM_ARRAY_TASK_ID}.smi")
+CHUNK_FILE="$(basename "${SMILES_FILE%.smi}")-${SLURM_ARRAY_TASK_ID}.smi"
 trap 'rm -f "$CHUNK_FILE"' EXIT
 
 # NOTE: make sure to use a range 1-N for the job arrays, otherwise the split WILL get messed up.
