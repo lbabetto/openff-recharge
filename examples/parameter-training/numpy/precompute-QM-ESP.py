@@ -15,6 +15,7 @@ os.environ.setdefault("MKL_NUM_THREADS", "1")
 
 from openff.toolkit import Quantity
 from openff.toolkit.topology import Molecule
+from openff.units import unit
 from tqdm import tqdm
 
 from openff.recharge.conformers import ConformerGenerator, ConformerSettings
@@ -57,6 +58,7 @@ def compute_esp(molecule_conformer: tuple[Molecule, Quantity], esp_settings: ESP
             # Minimize the input conformer prior to evaluating the ESP / EF
             minimize=True,
             n_threads=1,
+            memory=3000 * unit.mebibytes,
         )
         return MoleculeESPRecord.from_molecule(molecule, conformer, grid, esp, electric_field, esp_settings)
 
