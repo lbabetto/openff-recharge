@@ -17,4 +17,3 @@ OUTPUT_FILE="${SMILES_FILE%.smi}.sqlite"
 
 time python merge-esp-stores.py "${SMILES_FILE%.smi}"-*.sqlite --output "$OUTPUT_FILE"
 
-rm -f "${SMILES_FILE%.smi}"-*.sqlite
