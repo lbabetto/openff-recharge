@@ -4,6 +4,7 @@
 #SBATCH --partition dcgp_usr_prod
 #SBATCH --time 1-00:00:00
 #SBATCH --nodes 1
+#SBATCH --gres tmpfs:300G
 #SBATCH --exclusive
 #SBATCH --output slurm-%x-%j.out
 #SBATCH --error slurm-%x-%j.err
