@@ -1,6 +1,8 @@
 import argparse
 import logging
 import os
+import signal
+import subprocess
 import sys
 from functools import partial
 from multiprocessing import Pool, cpu_count
@@ -28,6 +30,14 @@ from openff.recharge.grids import LatticeGridSettings
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 
 
+class Psi4TimeoutError(Exception):
+    """Raised when a Psi4 calculation doesn't finish within the allotted timeout."""
+
+
+def _raise_timeout(signum, frame):
+    raise Psi4TimeoutError()
+
+
 def generate_conformers(smiles: str) -> list[tuple[Molecule, Quantity]]:
     try:
         molecule = Molecule.from_smiles(smiles, allow_undefined_stereo=True)
@@ -47,8 +57,15 @@ def generate_conformers(smiles: str) -> list[tuple[Molecule, Quantity]]:
     return [(molecule, conformer) for conformer in conformers]
 
 
-def compute_esp(molecule_conformer: tuple[Molecule, Quantity], esp_settings: ESPSettings) -> MoleculeESPRecord | None:
+def compute_esp(
+    molecule_conformer: tuple[Molecule, Quantity], esp_settings: ESPSettings, timeout: int
+) -> MoleculeESPRecord | None:
     molecule, conformer = molecule_conformer
+
+    # Psi4 runs as a blocking subprocess with no built-in timeout, so guard against
+    # a hung calculation with an alarm (each Pool worker handles one task at a time).
+    signal.signal(signal.SIGALRM, _raise_timeout)
+    signal.alarm(timeout)
 
     try:
         conformer, grid, esp, electric_field = Psi4ESPGenerator.generate(
@@ -62,9 +79,18 @@ def compute_esp(molecule_conformer: tuple[Molecule, Quantity], esp_settings: ESP
         )
         return MoleculeESPRecord.from_molecule(molecule, conformer, grid, esp, electric_field, esp_settings)
 
+    except Psi4TimeoutError:
+        logging.error(f"Timed out after {timeout}s for a conformer of {molecule.to_smiles()}")
+        # The psi4 subprocess is orphaned by the alarm; kill it off before moving on.
+        subprocess.run(["pkill", "-9", "-P", str(os.getpid())], stderr=subprocess.DEVNULL)
+        return None
+
     except (Exception, Psi4Error) as error:
         logging.error(f"Exception occurred for a conformer of {molecule.to_smiles()}:\n{error}")
         return None
+
+    finally:
+        signal.alarm(0)
 
 
 def parse_args() -> argparse.Namespace:
@@ -80,6 +106,14 @@ def parse_args() -> argparse.Namespace:
         type=int,
         default=cpu_count(),
         help="Number of worker processes to use (default: all available CPUs).",
+    )
+    parser.add_argument(
+        "-t",
+        "--timeout",
+        type=int,
+        default=60,
+        help="Maximum time in minutes to allow a single conformer's ESP calculation to run "
+        "before it is skipped (default: 60).",
     )
     return parser.parse_args()
 
@@ -111,7 +145,7 @@ def main():
         for task in generate_conformers(smiles)
     ]
 
-    worker = partial(compute_esp, esp_settings=esp_settings)
+    worker = partial(compute_esp, esp_settings=esp_settings, timeout=args.timeout * 60)
 
     with Pool(processes=args.n_workers) as pool:
         records = list(
