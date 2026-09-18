@@ -32,14 +32,17 @@ def compute_objective_term(
     # Each esp_record is independent, so run compute_objective_terms on a single
     # record at a time to parallelize the (comparatively expensive) AM1 charge
     # calculation it performs internally for every esp_record it is given.
-    return next(
-        ESPObjective.compute_objective_terms(
-            esp_records=[esp_record],
-            charge_collection=QCChargeSettings(theory="am1"),
-            bcc_collection=bcc_collection,
-            bcc_parameter_keys=bcc_parameter_keys,
+    try:
+        return next(
+            ESPObjective.compute_objective_terms(
+                esp_records=[esp_record],
+                charge_collection=QCChargeSettings(theory="am1"),
+                bcc_collection=bcc_collection,
+                bcc_parameter_keys=bcc_parameter_keys,
+            )
         )
-    )
+    except Exception as e:
+        logging.error(f"Exception occurred for {esp_record.tagged_smiles}:\n{e}")
 
 
 def parse_args() -> argparse.Namespace:
@@ -67,9 +70,10 @@ def parse_args() -> argparse.Namespace:
 def main():
     args = parse_args()
 
+    logging.info(f"Loading QC data records from {args.qc_data_file}")
     qc_data_store = MoleculeESPStore(str(args.qc_data_file))
     qc_data_records = qc_data_store.retrieve()
-    logging.info(f"Loaded {len(qc_data_records)} QC data records from {args.qc_data_file}")
+    logging.info(f"Loaded {len(qc_data_records)} records")
 
     # Define a set of parameters to train
     with open(args.bcc_smarts_file) as f:
