@@ -42,7 +42,8 @@ def compute_objective_term(
             )
         )
     except Exception as e:
-        logging.error(f"Exception occurred for {esp_record.tagged_smiles}:\n{e}")
+        logging.warning(f"Skipping {esp_record.tagged_smiles} due to error: {e}")
+        return None
 
 
 def parse_args() -> argparse.Namespace:
@@ -101,10 +102,13 @@ def main():
             )
         )
 
-    # Combine all the terms in our objective function (i.e. the difference between
-    # the reference and predicted ESP values for each molecule in each conformer) into
-    # a single object.
-    objective_term = ESPObjectiveTerm.combine(*objective_terms)
+    # Filter out failed molecules (None values) before combining
+    successful_terms = [term for term in objective_terms if term is not None]
+
+    logging.info(f"Successfully processed {len(successful_terms)} out of {len(objective_terms)} molecules.")
+
+    # Combine all the terms in the objective function back into a single object.
+    objective_term = ESPObjectiveTerm.combine(*successful_terms)
 
     # Train the parameters.
     trained_values, *_ = numpy.linalg.lstsq(
