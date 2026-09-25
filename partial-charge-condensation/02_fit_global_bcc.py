@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 import numpy as np
+from openff.nagl.features.atoms import AtomAverageFormalCharge
 from openff.recharge.charges.bcc import (
     BCCCollection,
     BCCGenerator,
@@ -18,7 +19,7 @@ from openff.units import unit
 
 BOHR_PER_ANGSTROM = 1.8897261254578281
 
-
+# sha256 calcola l'hash SHA-256 di un file specificato dal percorso e restituisce l'hash come stringa esadecimale.
 def sha256(path):
     digest = hashlib.sha256()
     with path.open("rb") as file:
@@ -27,6 +28,8 @@ def sha256(path):
     return digest.hexdigest()
 
 
+# load_manifest carica il file CSV del manifest e restituisce un elenco di righe come dizionari.
+# Se max_molecules è specificato, limita il numero di molecole caricate.
 def load_manifest(path, max_molecules):
     with path.open(newline="") as file:
         rows = list(csv.DictReader(file))
@@ -35,6 +38,9 @@ def load_manifest(path, max_molecules):
     return rows
 
 
+# conformer_indices restituisce un array di indici dei conformeri da selezionare.
+# Se max_conformers è None o maggiore del numero totale di conformeri, restituisce tutti gli indici.
+# Altrimenti, restituisce un array di indici equidistanti tra 0 e n_conformers - 1.
 def conformer_indices(n_conformers, max_conformers):
     if max_conformers is None or max_conformers >= n_conformers:
         return np.arange(n_conformers, dtype=int)
@@ -46,27 +52,29 @@ def conformer_indices(n_conformers, max_conformers):
     )
 
 
-def load_molecule_data(path):
-    with np.load(path, allow_pickle=False) as data:
-        xyz = np.asarray(data["xyz"], dtype=float)
-        atomic_numbers = np.asarray(data["atomic_numbers"], dtype=int)
-        q_reference = np.asarray(data["partial_charges"], dtype=float)
-        mapped_smiles = str(data["mapped_smiles"].item())
+# scalar_string converte un valore in una stringa scalare. l'input sarà la mapped smiles
+def scalar_string(value):
+    array = np.asarray(value)
 
-    molecule = Molecule.from_mapped_smiles(
-        mapped_smiles,
-        allow_undefined_stereo=True,
-    )
+    if array.size != 1:
+        raise ValueError(
+            f"Expected one string value, found shape {array.shape}."
+        )
 
-    molecule_atomic_numbers = np.array(
-        [atom.atomic_number for atom in molecule.atoms],
-        dtype=int,
-    )
+    item = array.reshape(-1)[0]
 
-    if not np.array_equal(molecule_atomic_numbers, atomic_numbers):
-        raise ValueError(f"Ordine atomico incoerente in {path}")
+    if isinstance(item, bytes):
+        return item.decode("utf-8")
 
-    q_base = np.array(
+    return str(item)
+
+
+# formal_charge_vector restituisce un array NumPy contenente le cariche formali di tutti gli atomi in una molecola.
+# Per farlo si serve della proprietà formal_charge di ogni atomo (di openff toolkit).
+# Le cariche formali sono convertite in unità di carica elementare tramite .m_as() e memorizzate come float.
+# Il risultato è un array NumPy di tipo float come ad esempio [0.0, 0.0, -1.0, 0.0]
+def formal_charge_vector(molecule):
+    return np.array(
         [
             atom.formal_charge.m_as(unit.elementary_charge)
             for atom in molecule.atoms
@@ -74,9 +82,91 @@ def load_molecule_data(path):
         dtype=float,
     )
 
+
+# build_resonance_averaged_seed costruisce un seed di carica formale media per una molecola.
+# Utilizza AtomAverageFormalCharge di nagl per calcolare le cariche medie degli atomi applicandola alla forma tensoriale della molecola.
+# Confronta la forma e la somma delle cariche con le cariche formali della molecola e restituisce un array NumPy contenente le cariche medie degli atomi.
+def build_resonance_averaged_seed(molecule):
+    charge_tensor = AtomAverageFormalCharge().encode(molecule)
+
+    q_resonance = (
+        charge_tensor.detach()
+        .cpu()
+        .numpy()
+        .reshape(-1)
+        .astype(float)
+    )
+    q_formal = formal_charge_vector(molecule)
+
+    if q_resonance.shape != q_formal.shape:
+        raise ValueError(
+            "Il seed resonance-aware ha una dimensione "
+            "incompatibile con la molecola."
+        )
+
+    if not np.all(np.isfinite(q_resonance)):
+        raise ValueError(
+            "Il seed resonance-aware contiene valori non finiti."
+        )
+
+    if not np.isclose(
+        q_resonance.sum(),
+        q_formal.sum(),
+        atol=1.0e-8,
+    ):
+        raise ValueError(
+            "Il seed resonance-aware non conserva "
+            "la carica molecolare totale."
+        )
+
+    return q_resonance
+
+
+# load_molecule_data carica i dati di una molecola da un file npz e restituisce l'oggetto molecule, le coordinate xyz, le cariche di riferimento q_reference e le cariche di base q_base.
+def load_molecule_data(path):
+    with np.load(path, allow_pickle=False) as data:
+        xyz = np.asarray(
+            data["xyz"],
+            dtype=float,
+        )
+        atomic_numbers = np.asarray(
+            data["atomic_numbers"],
+            dtype=int,
+        ).reshape(-1)
+        q_reference = np.asarray(
+            data["partial_charges"],
+            dtype=float,
+        ).reshape(-1)
+        mapped_smiles = scalar_string(
+            data["mapped_smiles"]
+        )
+
+    molecule = Molecule.from_mapped_smiles(
+        mapped_smiles,
+        allow_undefined_stereo=True,
+    )
+
+    molecule_atomic_numbers = np.array(
+        [
+            atom.atomic_number
+            for atom in molecule.atoms
+        ],
+        dtype=int,
+    )
+
+    if not np.array_equal(molecule_atomic_numbers, atomic_numbers):
+        raise ValueError(f"Ordine atomico incoerente in {path}")
+
+    try:
+        q_base = build_resonance_averaged_seed(molecule)
+    except Exception as error:
+        raise RuntimeError(
+            f"Impossibile costruire il seed resonance-aware per {path}"
+        ) from error
+
     return molecule, xyz, q_reference, q_base
 
-
+# save_checkpoint salva lo stato corrente del fitting in un file npz.
 def save_checkpoint(path, state, run_configuration):
     np.savez_compressed(
         path,
@@ -92,7 +182,7 @@ def save_checkpoint(path, state, run_configuration):
         run_configuration=np.array(json.dumps(run_configuration)),
     )
 
-
+# load_checkpoint carica lo stato del fitting da un file npz e verifica che la configurazione di esecuzione corrisponda a quella salvata.
 def load_checkpoint(path, run_configuration):
     with np.load(path, allow_pickle=False) as data:
         saved_configuration = json.loads(
@@ -150,6 +240,7 @@ n_parameters = len(bcc_template.parameters)
 grid_settings = MSKGridSettings()
 checkpoint_path = output_dir / "fit_checkpoint.npz"
 
+# Configurazione di esecuzione per il fitting globale dei BCC
 run_configuration = {
     "manifest": str(manifest_path),
     "manifest_sha256": sha256(manifest_path),
@@ -157,7 +248,10 @@ run_configuration = {
     "max_molecules": args.max_molecules,
     "max_conformers": args.max_conformers,
     "n_parameters": n_parameters,
-    "base_charges": "formal_charges",
+    "base_charges": "resonance_averaged_formal_charges",
+    "base_charge_implementation": (
+        "openff.nagl.features.atoms.AtomAverageFormalCharge"
+    ),
     "reference_charges": "partial_charges",
     "grid": "MSKGridSettings_default",
 }
@@ -195,6 +289,7 @@ else:
 
 start_index = state["processed_molecules"]
 
+# Elaborazione delle molecole nel manifest
 for row_index in range(start_index, len(rows)):
     row = rows[row_index]
     npz_path = Path(row["path"])
@@ -274,6 +369,7 @@ for row_index in range(start_index, len(rows)):
             f"molecole, {state['processed_conformers']} conformeri"
         )
 
+# Determinazione dei parametri BCC attivi e risoluzione del sistema lineare per ottenere le variazioni dei parametri
 active_training_indices = np.flatnonzero(
     np.diag(state["hessian"]) > 0.0
 )
@@ -346,7 +442,10 @@ for parameter_index, template_parameter in enumerate(
     bcc_template.parameters
 ):
     provenance = {
-        "source": "formal-charge BCC condensation",
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": run_configuration[
+            "base_charge_implementation"
+        ],
         "reference_charge_key": "partial_charges",
         "training_manifest_sha256": run_configuration[
             "manifest_sha256"
@@ -371,7 +470,7 @@ fitted_collection = BCCCollection(
 )
 
 collection_path = output_dir / "fitted_bcc_collection.json"
-collection_path.write_text(fitted_collection.json(indent=2))
+collection_path.write_text(fitted_collection.model_dump_json(indent=2))
 
 coverage_path = output_dir / "training_pattern_coverage.csv"
 

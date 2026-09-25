@@ -6,6 +6,7 @@ from collections import defaultdict
 from pathlib import Path
 
 import numpy as np
+from openff.nagl.features.atoms import AtomAverageFormalCharge
 from openff.recharge.charges.bcc import BCCCollection, BCCGenerator
 from openff.recharge.charges.exceptions import ChargeAssignmentError
 from openff.recharge.grids import GridGenerator, MSKGridSettings
@@ -48,12 +49,85 @@ def conformer_indices(n_conformers, max_conformers):
     )
 
 
+def formal_charge_vector(molecule):
+    return np.array(
+        [
+            atom.formal_charge.m_as(unit.elementary_charge)
+            for atom in molecule.atoms
+        ],
+        dtype=float,
+    )
+
+
+def build_resonance_averaged_seed(molecule):
+    charge_tensor = AtomAverageFormalCharge().encode(molecule)
+
+    q_resonance = (
+        charge_tensor.detach()
+        .cpu()
+        .numpy()
+        .reshape(-1)
+        .astype(float)
+    )
+    q_formal = formal_charge_vector(molecule)
+
+    if q_resonance.shape != q_formal.shape:
+        raise ValueError(
+            "Il seed resonance-aware ha una dimensione "
+            "incompatibile con la molecola."
+        )
+
+    if not np.all(np.isfinite(q_resonance)):
+        raise ValueError(
+            "Il seed resonance-aware contiene valori non finiti."
+        )
+
+    if not np.isclose(
+        q_resonance.sum(),
+        q_formal.sum(),
+        atol=1.0e-8,
+    ):
+        raise ValueError(
+            "Il seed resonance-aware non conserva "
+            "la carica molecolare totale."
+        )
+
+    return q_resonance
+
+
+def scalar_string(value):
+    array = np.asarray(value)
+
+    if array.size != 1:
+        raise ValueError(
+            f"Expected one string value, found shape {array.shape}."
+        )
+
+    item = array.reshape(-1)[0]
+
+    if isinstance(item, bytes):
+        return item.decode("utf-8")
+
+    return str(item)
+
+
 def load_molecule_data(path):
     with np.load(path, allow_pickle=False) as data:
-        xyz = np.asarray(data["xyz"], dtype=float)
-        atomic_numbers = np.asarray(data["atomic_numbers"], dtype=int)
-        q_reference = np.asarray(data["partial_charges"], dtype=float)
-        mapped_smiles = str(data["mapped_smiles"].item())
+        xyz = np.asarray(
+            data["xyz"],
+            dtype=float,
+        )
+        atomic_numbers = np.asarray(
+            data["atomic_numbers"],
+            dtype=int,
+        ).reshape(-1)
+        q_reference = np.asarray(
+            data["partial_charges"],
+            dtype=float,
+        ).reshape(-1)
+        mapped_smiles = scalar_string(
+            data["mapped_smiles"]
+        )
 
     molecule = Molecule.from_mapped_smiles(
         mapped_smiles,
@@ -61,20 +135,22 @@ def load_molecule_data(path):
     )
 
     molecule_atomic_numbers = np.array(
-        [atom.atomic_number for atom in molecule.atoms],
+        [
+            atom.atomic_number
+            for atom in molecule.atoms
+        ],
         dtype=int,
     )
 
     if not np.array_equal(molecule_atomic_numbers, atomic_numbers):
         raise ValueError(f"Ordine atomico incoerente in {path}")
 
-    q_base = np.array(
-        [
-            atom.formal_charge.m_as(unit.elementary_charge)
-            for atom in molecule.atoms
-        ],
-        dtype=float,
-    )
+    try:
+        q_base = build_resonance_averaged_seed(molecule)
+    except Exception as error:
+        raise RuntimeError(
+            f"Impossibile costruire il seed resonance-aware per {path}"
+        ) from error
 
     return molecule, xyz, q_reference, q_base
 
@@ -162,7 +238,7 @@ rows = load_manifest(manifest_path, args.max_molecules)
 if not rows:
     raise RuntimeError("Il manifest non contiene molecole.")
 
-bcc_collection = BCCCollection.parse_raw(collection_path.read_text())
+bcc_collection = BCCCollection.model_validate_json(collection_path.read_text())
 parameter_values = np.array(
     [parameter.value for parameter in bcc_collection.parameters],
     dtype=float,
@@ -337,7 +413,10 @@ summary = {
     "selected_molecules": len(rows),
     "max_molecules": args.max_molecules,
     "max_conformers": args.max_conformers,
-    "base_charges": "formal_charges",
+    "base_charges": "resonance_averaged_formal_charges",
+    "base_charge_implementation": (
+        "openff.nagl.features.atoms.AtomAverageFormalCharge"
+    ),
     "reference_charges": "partial_charges",
     "grid": "MSKGridSettings_default",
     "bcc_parameters": n_parameters,

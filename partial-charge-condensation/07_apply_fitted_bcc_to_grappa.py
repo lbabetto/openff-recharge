@@ -7,6 +7,7 @@ from collections import Counter
 from pathlib import Path
 
 import numpy as np
+from openff.nagl.features.atoms import AtomAverageFormalCharge
 from openff.recharge.charges.bcc import BCCCollection, BCCGenerator
 from openff.recharge.charges.exceptions import ChargeAssignmentError
 from openff.toolkit import Molecule
@@ -28,12 +29,12 @@ DEFAULT_DATASETS = [
 def parse_args():
     script_dir = Path(__file__).resolve().parent
     default_collection = (
-        script_dir / "results" / "fit" / "fitted_bcc_collection.json"
+        script_dir / "results" / "fit_resonance" / "fitted_bcc_collection.json"
     )
 
     parser = argparse.ArgumentParser(
         description=(
-            "Apply the fitted formal-charge BCC condensation model to "
+            "Apply the fitted resonance-aware BCC condensation model to "
             "Grappa-format NPZ datasets. Every input array is preserved and "
             "only partial_charges is replaced."
         )
@@ -148,6 +149,52 @@ def smiles(payload):
     return scalar_string(payload["smiles"])
 
 
+def formal_charge_vector(molecule):
+    return np.array(
+        [
+            atom.formal_charge.m_as(unit.elementary_charge)
+            for atom in molecule.atoms
+        ],
+        dtype=float,
+    )
+
+
+def build_resonance_averaged_seed(molecule):
+    charge_tensor = AtomAverageFormalCharge().encode(molecule)
+
+    q_resonance = (
+        charge_tensor.detach()
+        .cpu()
+        .numpy()
+        .reshape(-1)
+        .astype(float)
+    )
+    q_formal = formal_charge_vector(molecule)
+
+    if q_resonance.shape != q_formal.shape:
+        raise ValueError(
+            "Il seed resonance-aware ha una dimensione "
+            "incompatibile con la molecola."
+        )
+
+    if not np.all(np.isfinite(q_resonance)):
+        raise ValueError(
+            "Il seed resonance-aware contiene valori non finiti."
+        )
+
+    if not np.isclose(
+        q_resonance.sum(),
+        q_formal.sum(),
+        atol=1.0e-8,
+    ):
+        raise ValueError(
+            "Il seed resonance-aware non conserva "
+            "la carica molecolare totale."
+        )
+
+    return q_resonance
+
+
 def build_molecule(payload, path):
     mapped_smiles = scalar_string(payload["mapped_smiles"])
     molecule = Molecule.from_mapped_smiles(
@@ -166,13 +213,13 @@ def build_molecule(payload, path):
     if not np.array_equal(actual_atomic_numbers, expected_atomic_numbers):
         raise ValueError(f"Atomic order mismatch in {path}")
 
-    q_seed = np.array(
-        [
-            atom.formal_charge.m_as(unit.elementary_charge)
-            for atom in molecule.atoms
-        ],
-        dtype=float,
-    )
+    try:
+        q_seed = build_resonance_averaged_seed(molecule)
+    except Exception as error:
+        raise RuntimeError(
+            f"Impossibile costruire il seed resonance-aware per {path}"
+        ) from error
+
     return molecule, mapped_smiles, q_seed
 
 
@@ -185,7 +232,8 @@ def trained_flags(collection):
         if "trained" not in provenance:
             raise ValueError(
                 f"BCC parameter {index} has no provenance.trained flag. "
-                "Use the fitted collection produced by 02_fit_global_bcc.py."
+                "Use the fitted collection produced by "
+                "02_fit_global_bcc.py."
             )
 
         flags.append(bool(provenance["trained"]))
@@ -278,7 +326,7 @@ def main():
             (dataset, source_dir, target_dir, staging_dir, npz_paths)
         )
 
-    bcc_collection = BCCCollection.parse_raw(collection_path.read_text())
+    bcc_collection = BCCCollection.model_validate_json(collection_path.read_text())
     parameter_values = np.array(
         [parameter.value for parameter in bcc_collection.parameters],
         dtype=float,
@@ -446,8 +494,15 @@ def main():
             }
 
     summary = {
-        "method": "formal-charge BCC condensation",
-        "charge_equation": "q = q_formal + assignment_matrix @ fitted_delta",
+        "method": "resonance-averaged formal-charge BCC condensation",
+        "charge_equation": (
+            "q = q_resonance_averaged_formal "
+            "+ assignment_matrix @ fitted_delta"
+        ),
+        "base_charges": "resonance_averaged_formal_charges",
+        "base_charge_implementation": (
+            "openff.nagl.features.atoms.AtomAverageFormalCharge"
+        ),
         "bcc_collection": str(collection_path),
         "bcc_collection_sha256": sha256(collection_path),
         "bcc_parameters": len(parameter_values),
