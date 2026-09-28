@@ -8,10 +8,11 @@ from pathlib import Path
 
 import numpy as np
 from openff.nagl.features.atoms import AtomAverageFormalCharge
-from openff.recharge.charges.bcc import BCCCollection, BCCGenerator
+from openff.recharge.charges.bcc import BCCCollection
 from openff.recharge.charges.exceptions import ChargeAssignmentError
 from openff.toolkit import Molecule
 from openff.units import unit
+from fast_bcc_apply import build_assignment_matrix_fast, compile_bcc_queries
 
 
 DEFAULT_DATASETS = [
@@ -327,6 +328,7 @@ def main():
         )
 
     bcc_collection = BCCCollection.model_validate_json(collection_path.read_text())
+    compiled_bcc_queries = compile_bcc_queries(bcc_collection)
     parameter_values = np.array(
         [parameter.value for parameter in bcc_collection.parameters],
         dtype=float,
@@ -377,9 +379,10 @@ def main():
                 untrained_indices = np.array([], dtype=int)
 
                 try:
-                    assignment_matrix = BCCGenerator.build_assignment_matrix(
+                    assignment_matrix = build_assignment_matrix_fast(
                         molecule,
                         bcc_collection,
+                        compiled_bcc_queries,
                     )
                     bcc_covered = True
                 except ChargeAssignmentError as error:

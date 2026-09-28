@@ -8,13 +8,13 @@ import numpy as np
 from openff.nagl.features.atoms import AtomAverageFormalCharge
 from openff.recharge.charges.bcc import (
     BCCCollection,
-    BCCGenerator,
     BCCParameter,
     original_am1bcc_corrections,
 )
 from openff.recharge.grids import GridGenerator, MSKGridSettings
 from openff.toolkit import Molecule
 from openff.units import unit
+from fast_bcc_apply import build_assignment_matrix_fast, compile_bcc_queries
 
 
 BOHR_PER_ANGSTROM = 1.8897261254578281
@@ -236,6 +236,7 @@ if not rows:
     raise RuntimeError("Il manifest non contiene molecole.")
 
 bcc_template = original_am1bcc_corrections()
+compiled_bcc_queries = compile_bcc_queries(bcc_template)
 n_parameters = len(bcc_template.parameters)
 grid_settings = MSKGridSettings()
 checkpoint_path = output_dir / "fit_checkpoint.npz"
@@ -296,9 +297,10 @@ for row_index in range(start_index, len(rows)):
 
     molecule, xyz, q_reference, q_base = load_molecule_data(npz_path)
 
-    assignment_matrix = BCCGenerator.build_assignment_matrix(
+    assignment_matrix = build_assignment_matrix_fast(
         molecule,
         bcc_template,
+        compiled_bcc_queries,
     )
 
     active_indices = np.flatnonzero(
@@ -415,9 +417,10 @@ for row in rows:
     molecule, xyz, q_reference, q_base = load_molecule_data(
         Path(row["path"])
     )
-    assignment_matrix = BCCGenerator.build_assignment_matrix(
+    assignment_matrix = build_assignment_matrix_fast(
         molecule,
         bcc_template,
+        compiled_bcc_queries,
     )
     q_predicted = q_base + assignment_matrix @ delta
 
