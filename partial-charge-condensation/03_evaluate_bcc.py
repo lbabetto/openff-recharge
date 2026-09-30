@@ -38,16 +38,31 @@ def load_manifest(path, max_molecules):
     return rows
 
 
-def conformer_indices(n_conformers, max_conformers):
+def conformer_indices(
+    n_conformers,
+    max_conformers,
+    conformer_seed,
+    molecule_key,
+):
+    if n_conformers < 1:
+        raise ValueError("La molecola non contiene conformeri.")
+
     if max_conformers is None or max_conformers >= n_conformers:
         return np.arange(n_conformers, dtype=int)
 
-    return np.linspace(
-        0,
-        n_conformers - 1,
-        num=max_conformers,
-        dtype=int,
+    if max_conformers < 1:
+        raise ValueError("max_conformers deve essere maggiore di zero.")
+
+    seed_material = f"{conformer_seed}\0{molecule_key}".encode("utf-8")
+    molecule_seed = int.from_bytes(
+        hashlib.sha256(seed_material).digest()[:8],
+        byteorder="little",
+        signed=False,
     )
+    rng = np.random.default_rng(molecule_seed)
+    selected = rng.permutation(n_conformers)[:max_conformers]
+
+    return np.sort(selected).astype(int)
 
 
 def formal_charge_vector(molecule):
@@ -226,6 +241,7 @@ parser.add_argument("--bcc-collection", required=True)
 parser.add_argument("--output-dir", required=True)
 parser.add_argument("--max-molecules", type=int)
 parser.add_argument("--max-conformers", type=int, default=1)
+parser.add_argument("--conformer-seed", type=int, default=20260930)
 parser.add_argument("--progress-every", type=int, default=100)
 args = parser.parse_args()
 
@@ -283,6 +299,8 @@ for position, row in enumerate(rows, start=1):
     selected_conformers = conformer_indices(
         len(xyz),
         args.max_conformers,
+        args.conformer_seed,
+        f"{dataset}/{npz_path.name}",
     )
 
     molecule_state = new_metric_state()
@@ -336,7 +354,11 @@ for position, row in enumerate(rows, start=1):
             "mol_id": row.get("mol_id", ""),
             "smiles": row.get("smiles", ""),
             "n_atoms": molecule_state["atoms"],
+            "n_available_conformers": len(xyz),
             "n_conformers": molecule_state["conformers"],
+            "selected_conformer_indices": ";".join(
+                str(index) for index in selected_conformers
+            ),
             "n_grid_points": molecule_state["grid_points"],
             "esp_rmse_before_au": np.sqrt(
                 molecule_state["esp_ss_before"]
@@ -416,6 +438,11 @@ summary = {
     "selected_molecules": len(rows),
     "max_molecules": args.max_molecules,
     "max_conformers": args.max_conformers,
+    "conformer_selection": (
+        "sha256_per_molecule_random_without_replacement"
+    ),
+    "conformer_selection_key": "dataset/file_name",
+    "conformer_seed": args.conformer_seed,
     "base_charges": "resonance_averaged_formal_charges",
     "base_charge_implementation": (
         "openff.nagl.features.atoms.AtomAverageFormalCharge"
@@ -438,7 +465,9 @@ write_csv(
         "mol_id",
         "smiles",
         "n_atoms",
+        "n_available_conformers",
         "n_conformers",
+        "selected_conformer_indices",
         "n_grid_points",
         "esp_rmse_before_au",
         "esp_rmse_after_au",

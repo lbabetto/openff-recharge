@@ -38,18 +38,35 @@ def load_manifest(path, max_molecules):
     return rows
 
 
-# conformer_indices restituisce un array di indici dei conformeri da selezionare.
-# Se max_conformers è None o maggiore del numero totale di conformeri, restituisce tutti gli indici.
-# Altrimenti, restituisce un array di indici equidistanti tra 0 e n_conformers - 1.
-def conformer_indices(n_conformers, max_conformers):
+# Seleziona senza reinserimento un sottoinsieme casuale ma riproducibile.
+# La permutazione dipende dal seed globale e da un identificatore stabile
+# della molecola. Usandone i primi 1, 2, 5 o 10 elementi si ottengono campioni
+# annidati tra i diversi training.
+def conformer_indices(
+    n_conformers,
+    max_conformers,
+    conformer_seed,
+    molecule_key,
+):
+    if n_conformers < 1:
+        raise ValueError("La molecola non contiene conformeri.")
+
     if max_conformers is None or max_conformers >= n_conformers:
         return np.arange(n_conformers, dtype=int)
-    return np.linspace(
-        0,
-        n_conformers - 1,
-        num=max_conformers,
-        dtype=int,
+
+    if max_conformers < 1:
+        raise ValueError("max_conformers deve essere maggiore di zero.")
+
+    seed_material = f"{conformer_seed}\0{molecule_key}".encode("utf-8")
+    molecule_seed = int.from_bytes(
+        hashlib.sha256(seed_material).digest()[:8],
+        byteorder="little",
+        signed=False,
     )
+    rng = np.random.default_rng(molecule_seed)
+    selected = rng.permutation(n_conformers)[:max_conformers]
+
+    return np.sort(selected).astype(int)
 
 
 # scalar_string converte un valore in una stringa scalare. l'input sarà la mapped smiles
@@ -222,6 +239,7 @@ parser.add_argument("--manifest", required=True)
 parser.add_argument("--output-dir", required=True)
 parser.add_argument("--max-molecules", type=int)
 parser.add_argument("--max-conformers", type=int)
+parser.add_argument("--conformer-seed", type=int, default=20260930)
 parser.add_argument("--checkpoint-every", type=int, default=100)
 parser.add_argument("--resume", action="store_true")
 args = parser.parse_args()
@@ -248,6 +266,11 @@ run_configuration = {
     "selected_molecules": len(rows),
     "max_molecules": args.max_molecules,
     "max_conformers": args.max_conformers,
+    "conformer_selection": (
+        "sha256_per_molecule_random_without_replacement"
+    ),
+    "conformer_selection_key": "dataset/file_name",
+    "conformer_seed": args.conformer_seed,
     "n_parameters": n_parameters,
     "base_charges": "resonance_averaged_formal_charges",
     "base_charge_implementation": (
@@ -316,6 +339,9 @@ for row_index in range(start_index, len(rows)):
     selected_conformers = conformer_indices(
         len(xyz),
         args.max_conformers,
+        args.conformer_seed,
+        f"{row.get('dataset') or npz_path.parent.name}/"
+        f"{npz_path.name}",
     )
 
     charge_difference = q_reference - q_base
@@ -413,10 +439,34 @@ charge_ss_after = 0.0
 charge_count = 0
 maximum_total_charge_error = 0.0
 
+conformer_selection_rows = []
 for row in rows:
+    npz_path = Path(row["path"])
     molecule, xyz, q_reference, q_base = load_molecule_data(
-        Path(row["path"])
+        npz_path
     )
+
+    molecule_dataset = row.get("dataset") or npz_path.parent.name
+    molecule_key = f"{molecule_dataset}/{npz_path.name}"
+    selected_conformers = conformer_indices(
+        len(xyz),
+        args.max_conformers,
+        args.conformer_seed,
+        molecule_key,
+    )
+    conformer_selection_rows.append(
+        {
+            "dataset": molecule_dataset,
+            "file_name": npz_path.name,
+            "path": str(npz_path),
+            "n_available_conformers": len(xyz),
+            "n_selected_conformers": len(selected_conformers),
+            "selected_conformer_indices": ";".join(
+                str(index) for index in selected_conformers
+            ),
+        }
+    )
+
     assignment_matrix = build_assignment_matrix_fast(
         molecule,
         bcc_template,
@@ -511,6 +561,25 @@ with coverage_path.open("w", newline="") as file:
             }
         )
 
+selection_path = (
+    output_dir / "training_conformer_selection.csv"
+)
+
+with selection_path.open("w", newline="") as file:
+    writer = csv.DictWriter(
+        file,
+        fieldnames=[
+            "dataset",
+            "file_name",
+            "path",
+            "n_available_conformers",
+            "n_selected_conformers",
+            "selected_conformer_indices",
+        ],
+    )
+    writer.writeheader()
+    writer.writerows(conformer_selection_rows)
+
 if len(singular_values) > 0 and singular_values[-1] > 0.0:
     condition_number = float(
         singular_values[0] / singular_values[-1]
@@ -536,6 +605,7 @@ summary = {
     "maximum_total_charge_error_e": maximum_total_charge_error,
     "fitted_collection": str(collection_path),
     "pattern_coverage": str(coverage_path),
+    "conformer_selection_manifest": str(selection_path),
     "checkpoint": str(checkpoint_path),
 }
 
@@ -555,4 +625,5 @@ print("Training charge RMSE prima:", charge_rmse_before, "e")
 print("Training charge RMSE dopo:", charge_rmse_after, "e")
 print("Errore massimo sulla carica totale:", maximum_total_charge_error, "e")
 print("Tabella BCC:", collection_path)
+print("Selezione conformeri:", selection_path)
 print("Riepilogo:", summary_path)
