@@ -7,11 +7,11 @@
 #SBATCH --exclusive
 #SBATCH --ntasks-per-node 1
 #SBATCH --gres tmpfs:300G
-#SBATCH --array 1-10
+#SBATCH --array 1-100
 #SBATCH --output slurm-%x-%A_%a.out
 #SBATCH --error slurm-%x-%A_%a.err
 #SBATCH --mail-user l.babetto@cineca.it
-##SBATCH --mail-type ALL
+#SBATCH --mail-type ALL
 
 source /leonardo_work/cin_staff/lbabetto/miniforge3/etc/profile.d/conda.sh
 conda activate openff-recharge
@@ -27,6 +27,6 @@ CHUNK_FILE="${SMILES_FILE%.smi}-${SLURM_ARRAY_TASK_ID}.smi"
 trap 'rm -f "$CHUNK_FILE"' EXIT
 
 # NOTE: make sure to use a range 1-N for the job arrays, otherwise the split WILL get messed up.
-split -n "l/$((SLURM_ARRAY_TASK_ID))/${SLURM_ARRAY_TASK_COUNT}" "$SMILES_FILE" > "$CHUNK_FILE"
+split -n "l/${SLURM_ARRAY_TASK_ID}/${SLURM_ARRAY_TASK_COUNT}" "$SMILES_FILE" > "$CHUNK_FILE"
 
 time python precompute-QM-ESP.py "$CHUNK_FILE"
