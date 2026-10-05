@@ -65,6 +65,13 @@ def parse_args() -> argparse.Namespace:
         default=cpu_count(),
         help="Number of worker processes to use (default: all available CPUs).",
     )
+    parser.add_argument(
+        "--low-memory",
+        action="store_true",
+        help="Reduce the design matrix incrementally via QR instead of concatenating "
+        "every molecule's rows into one huge array. Numerically equivalent to the "
+        "default behaviour, but avoids holding the full design matrix in memory.",
+    )
     return parser.parse_args()
 
 
@@ -107,15 +114,39 @@ def main():
 
     logging.info(f"Successfully processed {len(successful_terms)} out of {len(objective_terms)} molecules.")
 
-    # Combine all the terms in the objective function back into a single object.
-    objective_term = ESPObjectiveTerm.combine(*successful_terms)
+    if args.low_memory:
+        # Reduce the stacked design matrix to a small (n_parameters, n_parameters)
+        # matrix via an incrementally-updated QR factorization, rather than concatenating
+        # every molecule's rows into one huge array (which requires hundreds of GiB). QR
+        # preserves singular values exactly (orthogonal transforms don't change them), so
+        # solving the reduced system below via lstsq is numerically equivalent to calling
+        # lstsq on the full, un-reduced design matrix.
+        n_parameters = len(bcc_parameters_to_train)
+        r_matrix = numpy.zeros((0, n_parameters))
+        z_vector = numpy.zeros((0, 1))
 
-    # Train the parameters.
-    trained_values, *_ = numpy.linalg.lstsq(
-        objective_term.atom_charge_design_matrix,
-        objective_term.reference_values,
-        rcond=None,
-    )
+        for term in tqdm(successful_terms, desc="Reducing design matrix via QR", file=sys.stdout):
+            stacked = numpy.vstack(
+                [
+                    numpy.hstack([r_matrix, z_vector]),
+                    numpy.hstack([term.atom_charge_design_matrix, term.reference_values]),
+                ]
+            )
+            _, r_updated = numpy.linalg.qr(stacked, mode="reduced")
+
+            r_matrix = r_updated[:n_parameters, :n_parameters]
+            z_vector = r_updated[:n_parameters, n_parameters:]
+
+        trained_values, *_ = numpy.linalg.lstsq(r_matrix, z_vector, rcond=None)
+    else:
+        # Combine all the terms in the objective function back into a single object.
+        objective_term = ESPObjectiveTerm.combine(*successful_terms)
+
+        trained_values, *_ = numpy.linalg.lstsq(
+            objective_term.atom_charge_design_matrix,
+            objective_term.reference_values,
+            rcond=None,
+        )
 
     print("TRAINED PARAMETERS".center(80, "-"))
 
