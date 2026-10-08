@@ -1,0 +1,4517 @@
+{
+  "parameters": [
+    {
+      "smirks": "[#6X4:1]-[#16X1-1:2]",
+      "value": -0.0873613072483274,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 0,
+        "template_value": 0.0833,
+        "template_provenance": {
+          "code": "110951"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]-[#16X1-1:2]",
+      "value": -0.30554945717241133,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 1,
+        "template_value": 0.3281,
+        "template_provenance": {
+          "code": "150951"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#6]):1]-[#16X1-1:2]",
+      "value": 0.032718478417448627,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 2,
+        "template_value": 0.1879,
+        "template_provenance": {
+          "code": "120951"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#7,#15]):1]-[#16X1-1:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 3,
+        "template_value": 0.1969,
+        "template_provenance": {
+          "code": "130951"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6X3:1](~[#8X1,#16X1])(~[#16X1:2])",
+      "value": 0.15149483635187283,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 4,
+        "template_value": 0.1713,
+        "template_provenance": {
+          "code": "140951"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6a$(*~[#7aX2,#8aX2]):1]-[#16X1-1:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 5,
+        "template_value": 0.3476,
+        "template_provenance": {
+          "code": "170951"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a:1]-[#16X1-1:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 6,
+        "template_value": 0.2541,
+        "template_provenance": {
+          "code": "160951"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[$([#7X3](-[#8X1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):1]~[#8X1:2]",
+      "value": -0.2504105172420073,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 7,
+        "template_value": -0.15,
+        "template_provenance": {
+          "code": "230931"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X3+1:1]-[#8X1-1:2]",
+      "value": -0.22234375662168812,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 8,
+        "template_value": 0.1317,
+        "template_provenance": {
+          "code": "230631"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X3$(*-[#6X3$(*=[#8])]):1]-[#8X1-1:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 9,
+        "template_value": 0.0465,
+        "template_provenance": {
+          "code": "220631"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#7X4+1:1]-[#8X1-1:2]",
+      "value": -0.4679204699787399,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 10,
+        "template_value": -0.1168,
+        "template_provenance": {
+          "code": "210631"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X1,#7X2+1:1]-[#8X1-1:2]",
+      "value": -0.7631125932930585,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 11,
+        "template_value": -0.0543,
+        "template_provenance": {
+          "code": "250631"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X2+0:1]-[#8X1-1:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 12,
+        "template_value": -0.0817,
+        "template_provenance": {
+          "code": "240631"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6X4:1]-[#8X1-1:2]",
+      "value": -0.5110135173756243,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 13,
+        "template_value": 0.1615,
+        "template_provenance": {
+          "code": "110931"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]-[#8X1-1:2]",
+      "value": -0.5177628081283504,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 14,
+        "template_value": 0.2549,
+        "template_provenance": {
+          "code": "150931"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#6]):1]-[#8X1-1:2]",
+      "value": -0.12856240787683584,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 15,
+        "template_value": 0.1844,
+        "template_provenance": {
+          "code": "120931"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#7,#15]):1]-[#8X1-1:2]",
+      "value": 0.17843304975446467,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 16,
+        "template_value": 0.3046,
+        "template_provenance": {
+          "code": "130931"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3:1](~[#8X1,#16X1])(~[#8X1:2])",
+      "value": -0.003912635526069297,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 17,
+        "template_value": 0.2653,
+        "template_provenance": {
+          "code": "140931"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6a$(*~[#7aX2,#8aX2]):1]-[#8X1-1:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 18,
+        "template_value": 0.337,
+        "template_provenance": {
+          "code": "170931"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a:1]-[#8X1-1:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 19,
+        "template_value": 0.2797,
+        "template_provenance": {
+          "code": "160931"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6X4:1]-[#6X4:2]",
+      "value": 0.010072284484837546,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 20,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "110111"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X4:1]-[#6X1,#6X2:2]",
+      "value": 0.1695870420815836,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 21,
+        "template_value": -0.0269,
+        "template_provenance": {
+          "code": "110115"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X4:1]-[#6X3$(*=[#6]):2]",
+      "value": 0.07621915499289839,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 22,
+        "template_value": 0.0024,
+        "template_provenance": {
+          "code": "110112"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X4:1]-[#6X3$(*=[#7,#15]):2]",
+      "value": 0.08125847500535052,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 23,
+        "template_value": -0.0753,
+        "template_provenance": {
+          "code": "110113"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X4:1]-[#6X3$(*=[#8,#16]):2]",
+      "value": 0.07338975312461077,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 24,
+        "template_value": -0.05,
+        "template_provenance": {
+          "code": "110114"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X4:1]-[#6a$(*~[#7aX2,#8aX2]):2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 25,
+        "template_value": -0.0943,
+        "template_provenance": {
+          "code": "110117"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6X4:1]-[#6a:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 26,
+        "template_value": 0.0073,
+        "template_provenance": {
+          "code": "110116"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6X4:1]-[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):2]",
+      "value": 0.30677221618581574,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 27,
+        "template_value": -0.0193,
+        "template_provenance": {
+          "code": "110123"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X4:1]-[#7X2-1$(*-[#6X3$(*=[#8X1,#16X1])]),#7X3$(*-[#6X3$(*=[#8X1,#16X1])]):2]",
+      "value": 0.1961592347690902,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 28,
+        "template_value": 0.0374,
+        "template_provenance": {
+          "code": "110122"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X4:1]-[#7X4,#7X3,#7X2-1:2]",
+      "value": 0.2558620412358026,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 29,
+        "template_value": 0.1582,
+        "template_provenance": {
+          "code": "110121"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X4:1]-[#7X1,#7X2+1:2]",
+      "value": -0.07281659490881184,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 30,
+        "template_value": 0.1825,
+        "template_provenance": {
+          "code": "110125"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X4:1]-[#7X2+0,#7X2-1ar5:2]",
+      "value": 0.1880043541191616,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 31,
+        "template_value": 0.1252,
+        "template_provenance": {
+          "code": "110124"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X4:1]-[#8X1,#8X2:2]",
+      "value": 0.2191081699438032,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 32,
+        "template_value": 0.0718,
+        "template_provenance": {
+          "code": "110131"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X4:1]-[#16X4:2]",
+      "value": 0.0726219627620939,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 33,
+        "template_value": 0.4608,
+        "template_provenance": {
+          "code": "110153"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X4:1]-[#16X3:2]",
+      "value": 0.1244440942734325,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 34,
+        "template_value": 0.4263,
+        "template_provenance": {
+          "code": "110152"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X4:1]-[#16X1,#16X2:2]",
+      "value": 0.16452009185220778,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 35,
+        "template_value": 0.1821,
+        "template_provenance": {
+          "code": "110151"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X4:1]-[#14X4:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 36,
+        "template_value": 0.154,
+        "template_provenance": {
+          "code": "110161"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6X4:1]-[#9:2]",
+      "value": 0.3106388499718379,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 37,
+        "template_value": 0.0713,
+        "template_provenance": {
+          "code": "110171"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X4:1]-[#17:2]",
+      "value": 0.18533734746286293,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 38,
+        "template_value": 0.0734,
+        "template_provenance": {
+          "code": "110172"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X4:1]-[#35:2]",
+      "value": 0.1618952672720098,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 39,
+        "template_value": 0.1274,
+        "template_provenance": {
+          "code": "110173"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X4:1]-[#53:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 40,
+        "template_value": 0.3009,
+        "template_provenance": {
+          "code": "110174"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6X4:1]-[#1:2]",
+      "value": -0.06543113344759877,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 41,
+        "template_value": 0.0393,
+        "template_provenance": {
+          "code": "110191"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]-[#6X1,#6X2:2]",
+      "value": -0.03366389533430336,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 42,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "150115"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]-[#6a$(*~[#7aX2,#8aX2]):2]",
+      "value": -0.18107290713795943,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 43,
+        "template_value": -0.107,
+        "template_provenance": {
+          "code": "150117"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]-[#6a:2]",
+      "value": -0.18772564358508648,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 44,
+        "template_value": 0.004,
+        "template_provenance": {
+          "code": "150116"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]-[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 45,
+        "template_value": -0.0543,
+        "template_provenance": {
+          "code": "150123"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]-[#7X2-1$(*-[#6X3$(*=[#8X1,#16X1])]),#7X3$(*-[#6X3$(*=[#8X1,#16X1])]):2]",
+      "value": -0.1051793672918708,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 46,
+        "template_value": 0.0062,
+        "template_provenance": {
+          "code": "150122"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]-[#7X4,#7X3,#7X2-1:2]",
+      "value": -0.15702437268549,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 47,
+        "template_value": 0.0558,
+        "template_provenance": {
+          "code": "150121"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]-[#7X1,#7X2+1:2]",
+      "value": -0.6866515000755581,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 48,
+        "template_value": 0.0798,
+        "template_provenance": {
+          "code": "150125"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]-[#7X2+0,#7X2-1ar5:2]",
+      "value": -0.19314072680706484,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 49,
+        "template_value": 0.052,
+        "template_provenance": {
+          "code": "150124"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]-[#8X1,#8X2:2]",
+      "value": -0.06373759528646794,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 50,
+        "template_value": 0.0286,
+        "template_provenance": {
+          "code": "150131"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]-[#16X4:2]",
+      "value": -0.011002323157130924,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 51,
+        "template_value": 0.4018,
+        "template_provenance": {
+          "code": "150153"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]-[#16X3:2]",
+      "value": 0.028463818202605268,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 52,
+        "template_value": 0.4586,
+        "template_provenance": {
+          "code": "150152"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]-[#16X1,#16X2:2]",
+      "value": -0.09583408643755266,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 53,
+        "template_value": 0.2251,
+        "template_provenance": {
+          "code": "150151"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]-[#14X4:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 54,
+        "template_value": 0.2343,
+        "template_provenance": {
+          "code": "150161"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]-[#9:2]",
+      "value": -0.016128165048098733,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 55,
+        "template_value": 0.0021,
+        "template_provenance": {
+          "code": "150171"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]-[#17:2]",
+      "value": -0.09854295083753342,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 56,
+        "template_value": 0.0899,
+        "template_provenance": {
+          "code": "150172"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]-[#35:2]",
+      "value": -0.007378799772007463,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 57,
+        "template_value": 0.2338,
+        "template_provenance": {
+          "code": "150173"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]-[#53:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 58,
+        "template_value": 0.2886,
+        "template_provenance": {
+          "code": "150174"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]-[#1:2]",
+      "value": -0.23660904825146112,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 59,
+        "template_value": 0.0575,
+        "template_provenance": {
+          "code": "150191"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]=[#6X1,#6X2:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 60,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "150215"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]=[#7X2+0,#7X2-1ar5:2]",
+      "value": 0.18220753501341477,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 61,
+        "template_value": 0.2204,
+        "template_provenance": {
+          "code": "150224"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]=[#8X1,#8X2:2]",
+      "value": 0.2814411962174638,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 62,
+        "template_value": 0.2335,
+        "template_provenance": {
+          "code": "150231"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]=[#16X3:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 63,
+        "template_value": 0.3052,
+        "template_provenance": {
+          "code": "150252"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]=[#16X1,#16X2:2]",
+      "value": 0.0826630593301245,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 64,
+        "template_value": 0.3429,
+        "template_provenance": {
+          "code": "150251"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]#[#6X1,#6X2:2]",
+      "value": 0.004863413576478792,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 65,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "150315"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X1,#6X2:1]#[#7X1,#7X2+1:2]",
+      "value": 0.3545280575798643,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 66,
+        "template_value": 0.3258,
+        "template_provenance": {
+          "code": "150325"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#6]):1]-[#6X1,#6X2:2]",
+      "value": 0.24815740674058764,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 67,
+        "template_value": 0.0333,
+        "template_provenance": {
+          "code": "120115"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#6]):1]-[#6X3$(*=[#6]):2]",
+      "value": 0.017875380429060783,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 68,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "120112"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#6]):1]-[#6X3$(*=[#7,#15]):2]",
+      "value": 0.009435983034920381,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 69,
+        "template_value": -0.0866,
+        "template_provenance": {
+          "code": "120113"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#6]):1]-[#6X3$(*=[#8,#16]):2]",
+      "value": 0.06062677902087814,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 70,
+        "template_value": -0.0172,
+        "template_provenance": {
+          "code": "120114"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#6]):1]-[#6a$(*~[#7aX2,#8aX2]):2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 71,
+        "template_value": -0.1098,
+        "template_provenance": {
+          "code": "120117"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#6]):1]-[#6a:2]",
+      "value": 0.5030737356942271,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 72,
+        "template_value": 0.0118,
+        "template_provenance": {
+          "code": "120116"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#6]):1]-[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):2]",
+      "value": 0.03959266104140595,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 73,
+        "template_value": -0.0271,
+        "template_provenance": {
+          "code": "120123"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#6]):1]-[#7X2-1$(*-[#6X3$(*=[#8X1,#16X1])]),#7X3$(*-[#6X3$(*=[#8X1,#16X1])]):2]",
+      "value": 0.05146800055729304,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 74,
+        "template_value": 0.0026,
+        "template_provenance": {
+          "code": "120122"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#6]):1]-[#7X4,#7X3,#7X2-1:2]",
+      "value": -0.011114633822773196,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 75,
+        "template_value": 0.082,
+        "template_provenance": {
+          "code": "120121"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#6]):1]-[#7X1,#7X2+1:2]",
+      "value": -0.1872822355723839,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 76,
+        "template_value": 0.4897,
+        "template_provenance": {
+          "code": "120125"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#6]):1]-[#7X2+0,#7X2-1ar5:2]",
+      "value": 0.2012142059398291,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 77,
+        "template_value": 0.1406,
+        "template_provenance": {
+          "code": "120124"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#6]):1]-[#8X1,#8X2:2]",
+      "value": 0.07119070482100792,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 78,
+        "template_value": 0.0441,
+        "template_provenance": {
+          "code": "120131"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#6]):1]-[#16X4:2]",
+      "value": 0.06463709497366643,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 79,
+        "template_value": 0.4509,
+        "template_provenance": {
+          "code": "120153"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#6]):1]-[#16X3:2]",
+      "value": 0.08831023204189169,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 80,
+        "template_value": 0.4307,
+        "template_provenance": {
+          "code": "120152"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#6]):1]-[#16X1,#16X2:2]",
+      "value": 0.0017231690936487798,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 81,
+        "template_value": 0.2406,
+        "template_provenance": {
+          "code": "120151"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#6]):1]-[#14X4:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 82,
+        "template_value": 0.2128,
+        "template_provenance": {
+          "code": "120161"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#6]):1]-[#9:2]",
+      "value": 0.13108492706123648,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 83,
+        "template_value": 0.0625,
+        "template_provenance": {
+          "code": "120171"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#6]):1]-[#17:2]",
+      "value": 0.07320413523549922,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 84,
+        "template_value": 0.0844,
+        "template_provenance": {
+          "code": "120172"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#6]):1]-[#35:2]",
+      "value": 0.07715718092756377,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 85,
+        "template_value": 0.1257,
+        "template_provenance": {
+          "code": "120173"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#6]):1]-[#53:2]",
+      "value": 0.1214918797849957,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 86,
+        "template_value": 0.2728,
+        "template_provenance": {
+          "code": "120174"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#6]):1]-[#1:2]",
+      "value": -0.15622822852186385,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 87,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "120191"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#6]):1]=[#6X1,#6X2:2]",
+      "value": -0.05340820149713893,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 88,
+        "template_value": -0.0631,
+        "template_provenance": {
+          "code": "120215"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#6]):1]=[#6X3$(*=[#6]):2]",
+      "value": 0.010452033399144994,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 89,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "120212"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#7,#15]):1]-[#6X1,#6X2:2]",
+      "value": 0.07262318959675117,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 90,
+        "template_value": 0.0302,
+        "template_provenance": {
+          "code": "130115"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#7,#15]):1]-[#6X3$(*=[#7,#15]):2]",
+      "value": 0.0328107235639761,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 91,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "130113"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#7,#15]):1]-[#6X3$(*=[#8,#16]):2]",
+      "value": 0.05026214512909518,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 92,
+        "template_value": 0.0693,
+        "template_provenance": {
+          "code": "130114"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#7,#15]):1]-[#6a$(*~[#7aX2,#8aX2]):2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 93,
+        "template_value": -0.0297,
+        "template_provenance": {
+          "code": "130117"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#7,#15]):1]-[#6a:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 94,
+        "template_value": 0.0839,
+        "template_provenance": {
+          "code": "130116"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#7,#15]):1]-[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):2]",
+      "value": 0.0741552953951347,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 95,
+        "template_value": 0.0388,
+        "template_provenance": {
+          "code": "130123"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#7,#15]):1]-[#7X2-1$(*-[#6X3$(*=[#8X1,#16X1])]),#7X3$(*-[#6X3$(*=[#8X1,#16X1])]):2]",
+      "value": -0.007630797169106196,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 96,
+        "template_value": 0.0069,
+        "template_provenance": {
+          "code": "130122"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#7,#15]):1]-[#7X4,#7X3,#7X2-1:2]",
+      "value": -0.015125674024249955,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 97,
+        "template_value": 0.1522,
+        "template_provenance": {
+          "code": "130121"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#7,#15]):1]-[#7X1,#7X2+1:2]",
+      "value": 0.20765254669575292,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 98,
+        "template_value": 0.2406,
+        "template_provenance": {
+          "code": "130125"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#7,#15]):1]-[#7X2+0,#7X2-1ar5:2]",
+      "value": 0.21951177420722034,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 99,
+        "template_value": 0.2193,
+        "template_provenance": {
+          "code": "130124"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#7,#15]):1]-[#8X1,#8X2:2]",
+      "value": 0.11045816860042018,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 100,
+        "template_value": 0.1336,
+        "template_provenance": {
+          "code": "130131"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#7,#15]):1]-[#16X4:2]",
+      "value": -0.018172871766039548,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 101,
+        "template_value": 0.5077,
+        "template_provenance": {
+          "code": "130153"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#7,#15]):1]-[#16X3:2]",
+      "value": 0.07240146357424203,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 102,
+        "template_value": 0.4296,
+        "template_provenance": {
+          "code": "130152"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#7,#15]):1]-[#16X1,#16X2:2]",
+      "value": 0.013388891207023301,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 103,
+        "template_value": 0.2242,
+        "template_provenance": {
+          "code": "130151"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#7,#15]):1]-[#9:2]",
+      "value": 0.1903018304581139,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 104,
+        "template_value": 0.1055,
+        "template_provenance": {
+          "code": "130171"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#7,#15]):1]-[#17:2]",
+      "value": 0.1027641897903911,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 105,
+        "template_value": 0.1123,
+        "template_provenance": {
+          "code": "130172"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#7,#15]):1]-[#35:2]",
+      "value": 0.09990631801847044,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 106,
+        "template_value": 0.1253,
+        "template_provenance": {
+          "code": "130173"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#7,#15]):1]-[#53:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 107,
+        "template_value": 0.2752,
+        "template_provenance": {
+          "code": "130174"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#7,#15]):1]-[#1:2]",
+      "value": -0.08950944045944098,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 108,
+        "template_value": 0.1292,
+        "template_provenance": {
+          "code": "130191"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#7,#15]):1]=[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):2]",
+      "value": 0.1894719587030833,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 109,
+        "template_value": 0.0547,
+        "template_provenance": {
+          "code": "130223"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#7,#15]):1]=[#7X1,#7X2+1:2]",
+      "value": -0.31730891480519346,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 110,
+        "template_value": 0.1624,
+        "template_provenance": {
+          "code": "130225"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#7,#15]):1]=[#7X2+0,#7X2-1ar5:2]",
+      "value": 0.2891171885192543,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 111,
+        "template_value": 0.2877,
+        "template_provenance": {
+          "code": "130224"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#8,#16]):1]-[#6X1,#6X2:2]",
+      "value": -0.00020081534787512196,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 112,
+        "template_value": -0.0308,
+        "template_provenance": {
+          "code": "140115"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#8,#16]):1]-[#6X3$(*=[#8,#16]):2]",
+      "value": -0.024682769532686208,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 113,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "140114"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#8,#16]):1]-[#6a$(*~[#7aX2,#8aX2]):2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 114,
+        "template_value": -0.0895,
+        "template_provenance": {
+          "code": "140117"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#8,#16]):1]-[#6a:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 115,
+        "template_value": 0.0206,
+        "template_provenance": {
+          "code": "140116"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#8,#16]):1]-[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):2]",
+      "value": 0.19693397216930983,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 116,
+        "template_value": -0.0432,
+        "template_provenance": {
+          "code": "140123"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#8,#16]):1]-[#7X2-1$(*-[#6X3$(*=[#8X1,#16X1])]),#7X3$(*-[#6X3$(*=[#8X1,#16X1])]):2]",
+      "value": 0.024080477034215675,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 117,
+        "template_value": 0.067,
+        "template_provenance": {
+          "code": "140122"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#8,#16]):1]-[#7X1,#7X2+1:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 118,
+        "template_value": 0.007,
+        "template_provenance": {
+          "code": "140125"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#8,#16]):1]-[#7X2+0,#7X2-1ar5:2]",
+      "value": 0.09946605148710932,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 119,
+        "template_value": 0.1394,
+        "template_provenance": {
+          "code": "140124"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#8,#16]):1]-[#8X1,#8X2:2]",
+      "value": 0.1442656894236053,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 120,
+        "template_value": 0.0901,
+        "template_provenance": {
+          "code": "140131"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#8,#16]):1]-[#16X4:2]",
+      "value": 0.023898372384151455,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 121,
+        "template_value": 0.484,
+        "template_provenance": {
+          "code": "140153"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#8,#16]):1]-[#16X3:2]",
+      "value": 0.043792836668700146,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 122,
+        "template_value": 0.4319,
+        "template_provenance": {
+          "code": "140152"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#8,#16]):1]-[#16X1,#16X2:2]",
+      "value": 0.07243932123855712,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 123,
+        "template_value": 0.1826,
+        "template_provenance": {
+          "code": "140151"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#8,#16]):1]-[#9:2]",
+      "value": 0.2389114301644079,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 124,
+        "template_value": 0.1115,
+        "template_provenance": {
+          "code": "140171"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#8,#16]):1]-[#17:2]",
+      "value": 0.12339352641048629,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 125,
+        "template_value": 0.0486,
+        "template_provenance": {
+          "code": "140172"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#8,#16]):1]-[#35:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 126,
+        "template_value": 0.1106,
+        "template_provenance": {
+          "code": "140173"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#8,#16]):1]-[#53:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 127,
+        "template_value": 0.2601,
+        "template_provenance": {
+          "code": "140174"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#8,#16]):1]-[#1:2]",
+      "value": -0.0664201762532712,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 128,
+        "template_value": 0.0928,
+        "template_provenance": {
+          "code": "140191"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#8,#16]):1]=[#8X1$(*=[#6r]@[#7r,#8r]):2]",
+      "value": 0.5372493253021196,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 129,
+        "template_value": 0.2755,
+        "template_provenance": {
+          "code": "140233"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#8,#16]):1]=[#8X1$(*=[#6X3]-[#8X2]):2]",
+      "value": 0.5109928256373564,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 130,
+        "template_value": 0.189,
+        "template_provenance": {
+          "code": "140232"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#8,#16]):1]=[#8X1,#8X2:2]",
+      "value": 0.5203332677578437,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 131,
+        "template_value": 0.2391,
+        "template_provenance": {
+          "code": "140231"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#8,#16]):1]=[#16X4:2]",
+      "value": -0.3733698116256124,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 132,
+        "template_value": 0.5617,
+        "template_provenance": {
+          "code": "140253"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#8,#16]):1]=[#16X3:2]",
+      "value": -0.4159614225253784,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 133,
+        "template_value": 0.4447,
+        "template_provenance": {
+          "code": "140252"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6X3$(*=[#8,#16]):1]=[#16X1,#16X2:2]",
+      "value": 0.40589054654347895,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 134,
+        "template_value": 0.2834,
+        "template_provenance": {
+          "code": "140251"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6a$(*~[#7aX2,#8aX2]):1]-[#6a$(*~[#7aX2,#8aX2]):2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 135,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "170117"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a$(*~[#7aX2,#8aX2]):1]-[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 136,
+        "template_value": 0.0635,
+        "template_provenance": {
+          "code": "170123"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a$(*~[#7aX2,#8aX2]):1]-[#7X2-1$(*-[#6X3$(*=[#8X1,#16X1])]),#7X3$(*-[#6X3$(*=[#8X1,#16X1])]):2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 137,
+        "template_value": 0.0799,
+        "template_provenance": {
+          "code": "170122"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a$(*~[#7aX2,#8aX2]):1]-[#7X4,#7X3,#7X2-1:2]",
+      "value": -0.21130087323432883,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 138,
+        "template_value": 0.1929,
+        "template_provenance": {
+          "code": "170121"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6a$(*~[#7aX2,#8aX2]):1]-[#7X1,#7X2+1:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 139,
+        "template_value": 0.21,
+        "template_provenance": {
+          "code": "170125"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a$(*~[#7aX2,#8aX2]):1]-[#7X2+0,#7X2-1ar5:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 140,
+        "template_value": 0.219,
+        "template_provenance": {
+          "code": "170124"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a$(*~[#7aX2,#8aX2]):1]-[#8X1,#8X2:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 141,
+        "template_value": 0.1703,
+        "template_provenance": {
+          "code": "170131"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a$(*~[#7aX2,#8aX2]):1]-[#16X4:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 142,
+        "template_value": 0.5169,
+        "template_provenance": {
+          "code": "170153"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a$(*~[#7aX2,#8aX2]):1]-[#16X3:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 143,
+        "template_value": 0.5416,
+        "template_provenance": {
+          "code": "170152"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a$(*~[#7aX2,#8aX2]):1]-[#16X1,#16X2:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 144,
+        "template_value": 0.3273,
+        "template_provenance": {
+          "code": "170151"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a$(*~[#7aX2,#8aX2]):1]-[#9:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 145,
+        "template_value": 0.1402,
+        "template_provenance": {
+          "code": "170171"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a$(*~[#7aX2,#8aX2]):1]-[#17:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 146,
+        "template_value": 0.166,
+        "template_provenance": {
+          "code": "170172"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a$(*~[#7aX2,#8aX2]):1]-[#35:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 147,
+        "template_value": 0.2312,
+        "template_provenance": {
+          "code": "170173"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a$(*~[#7aX2,#8aX2]):1]-[#53:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 148,
+        "template_value": 0.3528,
+        "template_provenance": {
+          "code": "170174"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a$(*~[#7aX2,#8aX2]):1]-[#1:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 149,
+        "template_value": 0.1369,
+        "template_provenance": {
+          "code": "170191"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a$(*~[#7aX2,#8aX2]):1]:[#6a$(*~[#7aX2,#8aX2]):2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 150,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "170717"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a$(*~[#7aX2,#8aX2]):1]:[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 151,
+        "template_value": 0.0885,
+        "template_provenance": {
+          "code": "170723"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a$(*~[#7aX2,#8aX2]):1]:[#7X2+0,#7X2-1ar5:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 152,
+        "template_value": 0.263,
+        "template_provenance": {
+          "code": "170724"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a$(*~[#7aX2,#8aX2]):1]:[#8X1,#8X2:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 153,
+        "template_value": 0.1294,
+        "template_provenance": {
+          "code": "170731"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a$(*~[#7aX2,#8aX2]):1]:[#16X1,#16X2:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 154,
+        "template_value": 0.3144,
+        "template_provenance": {
+          "code": "170751"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a:1]-[#6a$(*~[#7aX2,#8aX2]):2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 155,
+        "template_value": -0.1075,
+        "template_provenance": {
+          "code": "160117"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a:1]-[#6a:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 156,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "160116"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a:1]-[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 157,
+        "template_value": -0.0452,
+        "template_provenance": {
+          "code": "160123"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a:1]-[#7X2-1$(*-[#6X3$(*=[#8X1,#16X1])]),#7X3$(*-[#6X3$(*=[#8X1,#16X1])]):2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 158,
+        "template_value": -0.0074,
+        "template_provenance": {
+          "code": "160122"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a:1]-[#7X4,#7X3,#7X2-1:2]",
+      "value": -0.685703711084672,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 159,
+        "template_value": 0.0816,
+        "template_provenance": {
+          "code": "160121"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#6a:1]-[#7X1,#7X2+1:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 160,
+        "template_value": 0.1877,
+        "template_provenance": {
+          "code": "160125"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a:1]-[#7X2+0,#7X2-1ar5:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 161,
+        "template_value": 0.1394,
+        "template_provenance": {
+          "code": "160124"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a:1]-[#8X1,#8X2:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 162,
+        "template_value": 0.0451,
+        "template_provenance": {
+          "code": "160131"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a:1]-[#16X4:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 163,
+        "template_value": 0.4445,
+        "template_provenance": {
+          "code": "160153"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a:1]-[#16X3:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 164,
+        "template_value": 0.4285,
+        "template_provenance": {
+          "code": "160152"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a:1]-[#16X1,#16X2:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 165,
+        "template_value": 0.2269,
+        "template_provenance": {
+          "code": "160151"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a:1]-[#14X4:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 166,
+        "template_value": 0.1938,
+        "template_provenance": {
+          "code": "160161"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a:1]-[#9:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 167,
+        "template_value": 0.0349,
+        "template_provenance": {
+          "code": "160171"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a:1]-[#17:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 168,
+        "template_value": 0.0784,
+        "template_provenance": {
+          "code": "160172"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a:1]-[#35:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 169,
+        "template_value": 0.1401,
+        "template_provenance": {
+          "code": "160173"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a:1]-[#53:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 170,
+        "template_value": 0.2859,
+        "template_provenance": {
+          "code": "160174"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a:1]-[#1:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 171,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "160191"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a:1]:[#6a$(*~[#7aX2,#8aX2]):2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 172,
+        "template_value": -0.0653,
+        "template_provenance": {
+          "code": "160717"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a:1]:[#6a:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 173,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "160716"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a:1]:[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 174,
+        "template_value": -0.0243,
+        "template_provenance": {
+          "code": "160723"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a:1]:[#8X1,#8X2:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 175,
+        "template_value": -0.1518,
+        "template_provenance": {
+          "code": "160731"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#6a:1]:[#16X1,#16X2:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 176,
+        "template_value": 0.2699,
+        "template_provenance": {
+          "code": "160751"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):1]-[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):2]",
+      "value": -0.027434405939625532,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 177,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "230123"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):1]-[#7X2+0,#7X2-1ar5:2]",
+      "value": 0.21686261225439846,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 178,
+        "template_value": 0.1794,
+        "template_provenance": {
+          "code": "230124"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):1]-[#8X1,#8X2:2]",
+      "value": 0.006166658487299028,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 179,
+        "template_value": 0.0202,
+        "template_provenance": {
+          "code": "230131"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):1]-[#16X4:2]",
+      "value": -0.19117762909085084,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 180,
+        "template_value": 0.3418,
+        "template_provenance": {
+          "code": "230153"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):1]-[#16X1,#16X2:2]",
+      "value": -0.05450293093008156,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 181,
+        "template_value": 0.2024,
+        "template_provenance": {
+          "code": "230151"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):1]-[#14X4:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 182,
+        "template_value": 0.1766,
+        "template_provenance": {
+          "code": "230161"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):1]-[#9:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 183,
+        "template_value": 0.0561,
+        "template_provenance": {
+          "code": "230171"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):1]-[#17:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 184,
+        "template_value": 0.0642,
+        "template_provenance": {
+          "code": "230172"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):1]-[#35:2]",
+      "value": -0.12890391399107137,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 185,
+        "template_value": 0.1802,
+        "template_provenance": {
+          "code": "230173"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):1]-[#1:2]",
+      "value": -0.4200554353400403,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 186,
+        "template_value": -0.0497,
+        "template_provenance": {
+          "code": "230191"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):1]=[#7X2+0,#7X2-1ar5:2]",
+      "value": -0.049152575121918826,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 187,
+        "template_value": 0.1731,
+        "template_provenance": {
+          "code": "230224"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):1]:[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 188,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "230723"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):1]:[#7X2+0,#7X2-1ar5:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 189,
+        "template_value": 0.1698,
+        "template_provenance": {
+          "code": "230724"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):1]:[#8X1,#8X2:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 190,
+        "template_value": 0.0677,
+        "template_provenance": {
+          "code": "230731"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):1]:[#16X1,#16X2:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 191,
+        "template_value": 0.1565,
+        "template_provenance": {
+          "code": "230751"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#7X2-1$(*-[#6X3$(*=[#8X1,#16X1])]),#7X3$(*-[#6X3$(*=[#8X1,#16X1])]):1]-[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):2]",
+      "value": 0.25758618260028004,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 192,
+        "template_value": -0.0327,
+        "template_provenance": {
+          "code": "220123"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X2-1$(*-[#6X3$(*=[#8X1,#16X1])]),#7X3$(*-[#6X3$(*=[#8X1,#16X1])]):1]-[#7X2-1$(*-[#6X3$(*=[#8X1,#16X1])]),#7X3$(*-[#6X3$(*=[#8X1,#16X1])]):2]",
+      "value": 0.023160329611343823,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 193,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "220122"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X2-1$(*-[#6X3$(*=[#8X1,#16X1])]),#7X3$(*-[#6X3$(*=[#8X1,#16X1])]):1]-[#7X1,#7X2+1:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 194,
+        "template_value": 0.0235,
+        "template_provenance": {
+          "code": "220125"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#7X2-1$(*-[#6X3$(*=[#8X1,#16X1])]),#7X3$(*-[#6X3$(*=[#8X1,#16X1])]):1]-[#7X2+0,#7X2-1ar5:2]",
+      "value": 0.10622096670354766,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 195,
+        "template_value": 0.1326,
+        "template_provenance": {
+          "code": "220124"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X2-1$(*-[#6X3$(*=[#8X1,#16X1])]),#7X3$(*-[#6X3$(*=[#8X1,#16X1])]):1]-[#8X1,#8X2:2]",
+      "value": 0.014432243664630154,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 196,
+        "template_value": -0.0059,
+        "template_provenance": {
+          "code": "220131"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X2-1$(*-[#6X3$(*=[#8X1,#16X1])]),#7X3$(*-[#6X3$(*=[#8X1,#16X1])]):1]-[#16X4:2]",
+      "value": -0.11897508423077256,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 197,
+        "template_value": 0.3322,
+        "template_provenance": {
+          "code": "220153"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X2-1$(*-[#6X3$(*=[#8X1,#16X1])]),#7X3$(*-[#6X3$(*=[#8X1,#16X1])]):1]-[#16X3:2]",
+      "value": -0.015577539116751074,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 198,
+        "template_value": 0.3657,
+        "template_provenance": {
+          "code": "220152"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X2-1$(*-[#6X3$(*=[#8X1,#16X1])]),#7X3$(*-[#6X3$(*=[#8X1,#16X1])]):1]-[#16X1,#16X2:2]",
+      "value": -0.024112173275355406,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 199,
+        "template_value": 0.1593,
+        "template_provenance": {
+          "code": "220151"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X2-1$(*-[#6X3$(*=[#8X1,#16X1])]),#7X3$(*-[#6X3$(*=[#8X1,#16X1])]):1]-[#9:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 200,
+        "template_value": -0.0155,
+        "template_provenance": {
+          "code": "220171"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#7X2-1$(*-[#6X3$(*=[#8X1,#16X1])]),#7X3$(*-[#6X3$(*=[#8X1,#16X1])]):1]-[#17:2]",
+      "value": -0.13775304702989088,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 201,
+        "template_value": -0.0015,
+        "template_provenance": {
+          "code": "220172"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X2-1$(*-[#6X3$(*=[#8X1,#16X1])]),#7X3$(*-[#6X3$(*=[#8X1,#16X1])]):1]-[#35:2]",
+      "value": -0.12087743109171067,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 202,
+        "template_value": 0.0838,
+        "template_provenance": {
+          "code": "220173"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X2-1$(*-[#6X3$(*=[#8X1,#16X1])]),#7X3$(*-[#6X3$(*=[#8X1,#16X1])]):1]-[#53:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 203,
+        "template_value": 0.2067,
+        "template_provenance": {
+          "code": "220174"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#7X2-1$(*-[#6X3$(*=[#8X1,#16X1])]),#7X3$(*-[#6X3$(*=[#8X1,#16X1])]):1]-[#1:2]",
+      "value": -0.3260802242008722,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 204,
+        "template_value": -0.0865,
+        "template_provenance": {
+          "code": "220191"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X4,#7X3,#7X2-1:1]-[#7X3ar5,#7X3+1,#7X3+0$(*-[#6X3$(*=[#7X3+1])]),$([#7X3](-[#8X1-1])=[#8X1]),$([#7X3](=[#8X1])=[#8X1]):2]",
+      "value": 0.12796881711060337,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 205,
+        "template_value": -0.1185,
+        "template_provenance": {
+          "code": "210123"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X4,#7X3,#7X2-1:1]-[#7X2-1$(*-[#6X3$(*=[#8X1,#16X1])]),#7X3$(*-[#6X3$(*=[#8X1,#16X1])]):2]",
+      "value": 0.05193697563482144,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 206,
+        "template_value": -0.0302,
+        "template_provenance": {
+          "code": "210122"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X4,#7X3,#7X2-1:1]-[#7X4,#7X3,#7X2-1:2]",
+      "value": 0.000776339213495016,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 207,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "210121"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X4,#7X3,#7X2-1:1]-[#7X2+0,#7X2-1ar5:2]",
+      "value": 0.1311236934835574,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 208,
+        "template_value": 0.0867,
+        "template_provenance": {
+          "code": "210124"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X4,#7X3,#7X2-1:1]-[#8X1,#8X2:2]",
+      "value": -0.044203227695017645,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 209,
+        "template_value": -0.0517,
+        "template_provenance": {
+          "code": "210131"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X4,#7X3,#7X2-1:1]-[#16X4:2]",
+      "value": -0.046894185051861915,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 210,
+        "template_value": 0.3359,
+        "template_provenance": {
+          "code": "210153"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X4,#7X3,#7X2-1:1]-[#16X3:2]",
+      "value": -0.06281983974386512,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 211,
+        "template_value": 0.3531,
+        "template_provenance": {
+          "code": "210152"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X4,#7X3,#7X2-1:1]-[#16X1,#16X2:2]",
+      "value": -0.06583097581752258,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 212,
+        "template_value": 0.0757,
+        "template_provenance": {
+          "code": "210151"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X4,#7X3,#7X2-1:1]-[#14X4:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 213,
+        "template_value": 0.1037,
+        "template_provenance": {
+          "code": "210161"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#7X4,#7X3,#7X2-1:1]-[#9:2]",
+      "value": 0.11689104469190904,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 214,
+        "template_value": -0.0204,
+        "template_provenance": {
+          "code": "210171"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X4,#7X3,#7X2-1:1]-[#17:2]",
+      "value": 0.013712267088105454,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 215,
+        "template_value": -0.0369,
+        "template_provenance": {
+          "code": "210172"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X4,#7X3,#7X2-1:1]-[#35:2]",
+      "value": 0.02300217967732223,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 216,
+        "template_value": 0.0876,
+        "template_provenance": {
+          "code": "210173"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X4,#7X3,#7X2-1:1]-[#53:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 217,
+        "template_value": 0.1898,
+        "template_provenance": {
+          "code": "210174"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#7X4,#7X3,#7X2-1:1]-[#1:2]",
+      "value": -0.38258748348502813,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 218,
+        "template_value": -0.2048,
+        "template_provenance": {
+          "code": "210191"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X1,#7X2+1:1]-[#1:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 219,
+        "template_value": -0.1634,
+        "template_provenance": {
+          "code": "250191"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#7X1,#7X2+1:1]=[#7X1,#7X2+1:2]",
+      "value": 0.8941702159551648,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 220,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "250225"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X1,#7X2+1:1]#[#7X1,#7X2+1:2]",
+      "value": -0.6173586234942678,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 221,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "250325"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X1,#7X2+1:1]-[#16X1,#16X2:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 222,
+        "template_value": 0.1473,
+        "template_provenance": {
+          "code": "250651"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#7X2+0,#7X2-1ar5:1]-[#7X1,#7X2+1:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 223,
+        "template_value": 0.1043,
+        "template_provenance": {
+          "code": "240125"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#7X2+0,#7X2-1ar5:1]-[#7X2+0,#7X2-1ar5:2]",
+      "value": -0.0009345822828798686,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 224,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "240124"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X2+0,#7X2-1ar5:1]-[#8X1,#8X2:2]",
+      "value": -0.08310211898837717,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 225,
+        "template_value": -0.0985,
+        "template_provenance": {
+          "code": "240131"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X2+0,#7X2-1ar5:1]-[#16X4:2]",
+      "value": -0.09863432478081631,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 226,
+        "template_value": 0.2714,
+        "template_provenance": {
+          "code": "240153"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X2+0,#7X2-1ar5:1]-[#16X3:2]",
+      "value": -0.08848345521080765,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 227,
+        "template_value": 0.1731,
+        "template_provenance": {
+          "code": "240152"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X2+0,#7X2-1ar5:1]-[#16X1,#16X2:2]",
+      "value": -0.22474767868990062,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 228,
+        "template_value": 0.0315,
+        "template_provenance": {
+          "code": "240151"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X2+0,#7X2-1ar5:1]-[#14X4:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 229,
+        "template_value": 0.115,
+        "template_provenance": {
+          "code": "240161"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#7X2+0,#7X2-1ar5:1]-[#9:2]",
+      "value": -0.00674184401010181,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 230,
+        "template_value": -0.0554,
+        "template_provenance": {
+          "code": "240171"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X2+0,#7X2-1ar5:1]-[#17:2]",
+      "value": -0.02110330855921166,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 231,
+        "template_value": -0.0603,
+        "template_provenance": {
+          "code": "240172"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X2+0,#7X2-1ar5:1]-[#35:2]",
+      "value": -0.1015166947329763,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 232,
+        "template_value": 0.0192,
+        "template_provenance": {
+          "code": "240173"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X2+0,#7X2-1ar5:1]-[#53:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 233,
+        "template_value": 0.1171,
+        "template_provenance": {
+          "code": "240174"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#7X2+0,#7X2-1ar5:1]-[#1:2]",
+      "value": -0.4002749397990963,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 234,
+        "template_value": -0.2444,
+        "template_provenance": {
+          "code": "240191"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X2+0,#7X2-1ar5:1]=[#7X1,#7X2+1:2]",
+      "value": -0.35063144243514865,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 235,
+        "template_value": 0.004,
+        "template_provenance": {
+          "code": "240225"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X2+0,#7X2-1ar5:1]=[#7X2+0,#7X2-1ar5:2]",
+      "value": -0.05467223023082303,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 236,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "240224"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X2+0,#7X2-1ar5:1]=[#8X1,#8X2:2]",
+      "value": 0.15740090878392318,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 237,
+        "template_value": -0.0467,
+        "template_provenance": {
+          "code": "240231"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X2+0,#7X2-1ar5:1]=[#16X4:2]",
+      "value": -0.4202124461013472,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 238,
+        "template_value": 0.4265,
+        "template_provenance": {
+          "code": "240253"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X2+0,#7X2-1ar5:1]=[#16X3:2]",
+      "value": -0.6373375576339101,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 239,
+        "template_value": 0.3764,
+        "template_provenance": {
+          "code": "240252"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X2+0,#7X2-1ar5:1]=[#16X1,#16X2:2]",
+      "value": -0.41670391972531357,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 240,
+        "template_value": 0.1684,
+        "template_provenance": {
+          "code": "240251"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#7X2+0,#7X2-1ar5:1]:[#7X2+0,#7X2-1ar5:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 241,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "240724"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#7X2+0,#7X2-1ar5:1]:[#8X1,#8X2:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 242,
+        "template_value": -0.0723,
+        "template_provenance": {
+          "code": "240731"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#7X2+0,#7X2-1ar5:1]:[#16X1,#16X2:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 243,
+        "template_value": 0.0419,
+        "template_provenance": {
+          "code": "240751"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#8X1,#8X2:1]-[#8X1,#8X2:2]",
+      "value": -0.004205128325350429,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 244,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "310131"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#8X1,#8X2:1]-[#16X4:2]",
+      "value": -0.23676178486673347,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 245,
+        "template_value": 0.2093,
+        "template_provenance": {
+          "code": "310153"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#8X1,#8X2:1]-[#16X3:2]",
+      "value": 0.01542612772957901,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 246,
+        "template_value": 0.2152,
+        "template_provenance": {
+          "code": "310152"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#8X1,#8X2:1]-[#16X1,#16X2:2]",
+      "value": -0.1086663937698611,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 247,
+        "template_value": 0.0442,
+        "template_provenance": {
+          "code": "310151"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#8X1,#8X2:1]-[#14X4:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 248,
+        "template_value": 0.0083,
+        "template_provenance": {
+          "code": "310161"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#8X1,#8X2:1]-[#9:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 249,
+        "template_value": 0.0375,
+        "template_provenance": {
+          "code": "310171"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#8X1,#8X2:1]-[#17:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 250,
+        "template_value": 0.0014,
+        "template_provenance": {
+          "code": "310172"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#8X1,#8X2:1]-[#35:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 251,
+        "template_value": 0.0699,
+        "template_provenance": {
+          "code": "310173"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#8X1,#8X2:1]-[#53:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 252,
+        "template_value": 0.1712,
+        "template_provenance": {
+          "code": "310174"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#8X1,#8X2:1]-[#1:2]",
+      "value": -0.43318667915855524,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 253,
+        "template_value": -0.201,
+        "template_provenance": {
+          "code": "310191"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#8X1,#8X2:1]=[#16X4:2]",
+      "value": -0.5486068451275601,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 254,
+        "template_value": 0.2792,
+        "template_provenance": {
+          "code": "310253"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#8X1,#8X2:1]=[#16X3:2]",
+      "value": 0.3869211399509945,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 255,
+        "template_value": 0.2718,
+        "template_provenance": {
+          "code": "310252"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#8X1,#8X2:1]=[#16X1,#16X2:2]",
+      "value": -0.474924136267334,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 256,
+        "template_value": 0.1583,
+        "template_provenance": {
+          "code": "310251"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#8X1,#8X2:1]:[#16X1,#16X2:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 257,
+        "template_value": 0.0983,
+        "template_provenance": {
+          "code": "310751"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#8X1,#8X2:1]~[#16X4:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 258,
+        "template_value": 0.3228,
+        "template_provenance": {
+          "code": "310953"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#8X1,#8X2:1]~[#16X3:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 259,
+        "template_value": 0.3916,
+        "template_provenance": {
+          "code": "310952"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#8X1,#8X2:1]~[#16X1,#16X2:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 260,
+        "template_value": 0.153,
+        "template_provenance": {
+          "code": "310951"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#16X4:1]-[#9:2]",
+      "value": 0.18700615813187643,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 261,
+        "template_value": -0.2041,
+        "template_provenance": {
+          "code": "530171"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#16X4:1]-[#17:2]",
+      "value": 0.21367206171116077,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 262,
+        "template_value": -0.2761,
+        "template_provenance": {
+          "code": "530172"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#16X4:1]-[#35:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 263,
+        "template_value": -0.197,
+        "template_provenance": {
+          "code": "530173"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#16X4:1]-[#53:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 264,
+        "template_value": -0.149,
+        "template_provenance": {
+          "code": "530174"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#16X4:1]-[#1:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 265,
+        "template_value": -0.4588,
+        "template_provenance": {
+          "code": "530191"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#16X3:1]-[#16X3:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 266,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "520152"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#16X3:1]-[#17:2]",
+      "value": 0.13248958483139106,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 267,
+        "template_value": -0.235,
+        "template_provenance": {
+          "code": "520172"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#16X3:1]-[#1:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 268,
+        "template_value": -0.404,
+        "template_provenance": {
+          "code": "520191"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#16X1,#16X2:1]-[#16X4:2]",
+      "value": -0.19267508091498092,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 269,
+        "template_value": 0.2971,
+        "template_provenance": {
+          "code": "510153"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#16X1,#16X2:1]-[#16X3:2]",
+      "value": -0.0701082299707402,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 270,
+        "template_value": 0.2576,
+        "template_provenance": {
+          "code": "510152"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#16X1,#16X2:1]-[#16X1,#16X2:2]",
+      "value": -0.003351960844654068,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 271,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "510151"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#16X1,#16X2:1]-[#14X4:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 272,
+        "template_value": -0.0936,
+        "template_provenance": {
+          "code": "510161"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#16X1,#16X2:1]-[#9:2]",
+      "value": 0.17066195682106425,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 273,
+        "template_value": -0.0547,
+        "template_provenance": {
+          "code": "510171"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#16X1,#16X2:1]-[#17:2]",
+      "value": 0.04115710223046972,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 274,
+        "template_value": -0.026,
+        "template_provenance": {
+          "code": "510172"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#16X1,#16X2:1]-[#35:2]",
+      "value": 0.2123481456980279,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 275,
+        "template_value": 0.1105,
+        "template_provenance": {
+          "code": "510173"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#16X1,#16X2:1]-[#1:2]",
+      "value": -0.20456218472507026,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 276,
+        "template_value": -0.1718,
+        "template_provenance": {
+          "code": "510191"
+        },
+        "trained": true
+      }
+    },
+    {
+      "smirks": "[#16X1,#16X2:1]=[#16X3:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 277,
+        "template_value": 0.3295,
+        "template_provenance": {
+          "code": "510252"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#16X1,#16X2:1]:[#16X1,#16X2:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 278,
+        "template_value": 0.0,
+        "template_provenance": {
+          "code": "510751"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#16X1,#16X2:1]~[#16X4:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 279,
+        "template_value": 0.5218,
+        "template_provenance": {
+          "code": "510953"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#14X4:1]-[#17:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 280,
+        "template_value": -0.0555,
+        "template_provenance": {
+          "code": "610172"
+        },
+        "trained": false
+      }
+    },
+    {
+      "smirks": "[#14X4:1]-[#1:2]",
+      "value": 0.0,
+      "provenance": {
+        "source": "resonance-averaged formal-charge BCC condensation",
+        "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+        "reference_charge_key": "partial_charges",
+        "training_manifest_sha256": "3a67df312da075ce205f2be57e62a4f3070923d510c2aa2f5f95b25561045628",
+        "template_parameter_index": 281,
+        "template_value": -0.0258,
+        "template_provenance": {
+          "code": "610191"
+        },
+        "trained": false
+      }
+    }
+  ],
+  "aromaticity_model": "AM1BCC"
+}

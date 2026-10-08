@@ -468,7 +468,7 @@ def main():
         }
 
     figure, axis = plt.subplots(figsize=(8.2, 7.2))
-    color_map = plt.get_cmap("tab20")
+    color_map = plt.get_cmap("tab10")
     elements = [
         element
         for element, _ in element_counts.most_common()
@@ -486,7 +486,7 @@ def main():
             reference[mask],
             predicted[mask],
             s=7,
-            alpha=0.22,
+            alpha=0.35,
             edgecolors="none",
             rasterized=True,
             color=color_map(
@@ -507,7 +507,7 @@ def main():
         color="black",
         linewidth=1.2,
         linestyle="--",
-        label="q predetta = q riferimento",
+        #label="q predetta = q riferimento",
     )
 
     top_reference = [
@@ -528,19 +528,6 @@ def main():
         label=f"Top {len(top_rows)} outlier",
     )
 
-    for rank, row in enumerate(top_rows, start=1):
-        axis.annotate(
-            str(rank),
-            (
-                row["reference_charge_e"],
-                row["predicted_charge_e"],
-            ),
-            xytext=(4, 4),
-            textcoords="offset points",
-            fontsize=7,
-            color="darkred",
-        )
-
     axis.set_xlim(lower, upper)
     axis.set_ylim(lower, upper)
     axis.set_aspect("equal", adjustable="box")
@@ -555,7 +542,7 @@ def main():
         f"N atomi = {len(atom_rows):,}\n"
         f"RMSE = {charge_rmse:.6f} e\n"
         f"MAE = {charge_mae:.6f} e\n"
-        f"R² = {r_squared:.5f}\n"
+        #f"R² = {r_squared:.5f}\n"
         f"Pearson r = {pearson_r:.5f}"
     )
     axis.text(
@@ -660,6 +647,8 @@ def main():
     axis.set_title(
         "Decomposizione delle cariche per i principali outlier"
     )
+    axis.tick_params(axis="y", labelsize=12)
+    axis.grid(axis="x", alpha=0.2)
     axis.grid(axis="x", alpha=0.2)
     axis.legend(
         loc="best",

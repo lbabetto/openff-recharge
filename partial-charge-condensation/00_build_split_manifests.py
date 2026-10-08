@@ -17,6 +17,7 @@ DEFAULT_DATASETS = [
     "spice-des-monomers",
     "rna-nucleoside",
     "rna-diverse",
+    "rna-trinucleotide",
 ]
 
 

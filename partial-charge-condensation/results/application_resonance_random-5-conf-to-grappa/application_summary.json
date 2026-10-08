@@ -1,0 +1,104 @@
+{
+  "method": "resonance-averaged formal-charge BCC condensation",
+  "charge_equation": "q = q_resonance_averaged_formal + assignment_matrix @ fitted_delta",
+  "base_charges": "resonance_averaged_formal_charges",
+  "base_charge_implementation": "openff.nagl.features.atoms.AtomAverageFormalCharge",
+  "bcc_collection": "/leonardo_work/cin_staff/lquerci1/MLFF/openff-recharge-luca/partial-charge-condensation/results/fit_resonance_random-5-conf/fitted_bcc_collection.json",
+  "bcc_collection_sha256": "3392128dc8e992ac64ec58242bef4a9d3372da13e8a232f97a26806a5d7ce163",
+  "bcc_parameters": 282,
+  "trained_bcc_parameters": 176,
+  "dataset_root": "/leonardo_work/cin_staff/lquerci1/MLFF/GRAPPA/grappa-v.1.4.1/data/datasets",
+  "output_root": "/leonardo_work/cin_staff/lquerci1/MLFF/GRAPPA/grappa-v.1.4.1/data/datasets",
+  "output_suffix": "-recharge-condensed-5-confs-esp",
+  "neutral_only": false,
+  "max_molecules_per_dataset": null,
+  "npz_policy": "all arrays preserved; only partial_charges replaced; legacy charge_model feature preserved for Grappa compatibility",
+  "counting_note": "charged, uncovered, and active-untrained counts are independent and may overlap; excluded_molecules is the unique excluded total",
+  "totals": {
+    "input_molecules": 17532,
+    "charged_molecules": 1099,
+    "uncovered_molecules": 630,
+    "active_untrained_molecules": 0,
+    "written_molecules": 16902,
+    "excluded_molecules": 630
+  },
+  "datasets": {
+    "gen2": {
+      "input_molecules": 1024,
+      "charged_molecules": 151,
+      "uncovered_molecules": 4,
+      "active_untrained_molecules": 0,
+      "written_molecules": 1020,
+      "excluded_molecules": 4,
+      "source_directory": "/leonardo_work/cin_staff/lquerci1/MLFF/GRAPPA/grappa-v.1.4.1/data/datasets/gen2",
+      "output_directory": "/leonardo_work/cin_staff/lquerci1/MLFF/GRAPPA/grappa-v.1.4.1/data/datasets/gen2-recharge-condensed-5-confs-esp"
+    },
+    "gen2-torsion": {
+      "input_molecules": 729,
+      "charged_molecules": 36,
+      "uncovered_molecules": 9,
+      "active_untrained_molecules": 0,
+      "written_molecules": 720,
+      "excluded_molecules": 9,
+      "source_directory": "/leonardo_work/cin_staff/lquerci1/MLFF/GRAPPA/grappa-v.1.4.1/data/datasets/gen2-torsion",
+      "output_directory": "/leonardo_work/cin_staff/lquerci1/MLFF/GRAPPA/grappa-v.1.4.1/data/datasets/gen2-torsion-recharge-condensed-5-confs-esp"
+    },
+    "pepconf-dlc": {
+      "input_molecules": 557,
+      "charged_molecules": 92,
+      "uncovered_molecules": 0,
+      "active_untrained_molecules": 0,
+      "written_molecules": 557,
+      "source_directory": "/leonardo_work/cin_staff/lquerci1/MLFF/GRAPPA/grappa-v.1.4.1/data/datasets/pepconf-dlc",
+      "output_directory": "/leonardo_work/cin_staff/lquerci1/MLFF/GRAPPA/grappa-v.1.4.1/data/datasets/pepconf-dlc-recharge-condensed-5-confs-esp"
+    },
+    "protein-torsion": {
+      "input_molecules": 62,
+      "charged_molecules": 10,
+      "uncovered_molecules": 0,
+      "active_untrained_molecules": 0,
+      "written_molecules": 62,
+      "source_directory": "/leonardo_work/cin_staff/lquerci1/MLFF/GRAPPA/grappa-v.1.4.1/data/datasets/protein-torsion",
+      "output_directory": "/leonardo_work/cin_staff/lquerci1/MLFF/GRAPPA/grappa-v.1.4.1/data/datasets/protein-torsion-recharge-condensed-5-confs-esp"
+    },
+    "spice-pubchem": {
+      "input_molecules": 14110,
+      "charged_molecules": 533,
+      "uncovered_molecules": 607,
+      "active_untrained_molecules": 0,
+      "written_molecules": 13503,
+      "excluded_molecules": 607,
+      "source_directory": "/leonardo_work/cin_staff/lquerci1/MLFF/GRAPPA/grappa-v.1.4.1/data/datasets/spice-pubchem",
+      "output_directory": "/leonardo_work/cin_staff/lquerci1/MLFF/GRAPPA/grappa-v.1.4.1/data/datasets/spice-pubchem-recharge-condensed-5-confs-esp"
+    },
+    "spice-dipeptide": {
+      "input_molecules": 677,
+      "charged_molecules": 258,
+      "uncovered_molecules": 0,
+      "active_untrained_molecules": 0,
+      "written_molecules": 677,
+      "source_directory": "/leonardo_work/cin_staff/lquerci1/MLFF/GRAPPA/grappa-v.1.4.1/data/datasets/spice-dipeptide",
+      "output_directory": "/leonardo_work/cin_staff/lquerci1/MLFF/GRAPPA/grappa-v.1.4.1/data/datasets/spice-dipeptide-recharge-condensed-5-confs-esp"
+    },
+    "spice-des-monomers": {
+      "input_molecules": 369,
+      "charged_molecules": 19,
+      "uncovered_molecules": 10,
+      "active_untrained_molecules": 0,
+      "written_molecules": 359,
+      "excluded_molecules": 10,
+      "source_directory": "/leonardo_work/cin_staff/lquerci1/MLFF/GRAPPA/grappa-v.1.4.1/data/datasets/spice-des-monomers",
+      "output_directory": "/leonardo_work/cin_staff/lquerci1/MLFF/GRAPPA/grappa-v.1.4.1/data/datasets/spice-des-monomers-recharge-condensed-5-confs-esp"
+    },
+    "rna-nucleoside": {
+      "input_molecules": 4,
+      "charged_molecules": 0,
+      "uncovered_molecules": 0,
+      "active_untrained_molecules": 0,
+      "written_molecules": 4,
+      "source_directory": "/leonardo_work/cin_staff/lquerci1/MLFF/GRAPPA/grappa-v.1.4.1/data/datasets/rna-nucleoside",
+      "output_directory": "/leonardo_work/cin_staff/lquerci1/MLFF/GRAPPA/grappa-v.1.4.1/data/datasets/rna-nucleoside-recharge-condensed-5-confs-esp"
+    }
+  },
+  "manifest": "/leonardo_work/cin_staff/lquerci1/MLFF/openff-recharge-luca/partial-charge-condensation/results/application_resonance_random-5-conf-to-grappa/application_manifest.csv"
+}
